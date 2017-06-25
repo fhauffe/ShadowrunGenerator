@@ -1,16 +1,14 @@
 $(document).ready(function() {
    $(".eventButton").click(function() {
-       var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
-       if(appLanguage == "en") {
-           $(".showEvent").html(randomEvent());
-       }
-     
+       $(".showEvent").html(randomEvent());
    });
 });
 
 function randomEvent() {
+    
     var events = {};
-    var events = [
+    
+    events["en"] = [
         "Gang drive-by shooting",
         "Person screaming for help in an alley, getting mugged",
         "Person screaming for help in an alley, it's a trap!",
@@ -33,7 +31,13 @@ function randomEvent() {
         "Thor shot right on the PCs' faces (aka rocks fall, everyone dies)"
     ];
     
-    var eventNumber = Math.floor(Math.random() * events.length);
+        events["de"] = [
+        "Eine Katze fällt vom Baum",
+        "Vlad ruft an!"    
+    ];
     
-    return (events[eventNumber]);
+    var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
+    var eventNumber = Math.floor(Math.random() * events[appLanguage].length);
+    
+    return (events[appLanguage][eventNumber]);
 }
