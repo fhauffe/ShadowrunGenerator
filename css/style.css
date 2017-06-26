@@ -1,5 +1,40 @@
+.html {
+    background-image: url(../img/background.jpg);
+    background-position: center;
+}
+
+body {
+    background-image: url(../img/background.jpg);
+    max-width: 100%;
+}
+
+.headerLogo {
+    text-align: center;
+}
+
+.headerLogo img {
+    max-width: 100%;
+
+}
+
+.container {
+    min-height: 500px;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fefefe;
+}
+
+.section btn {
+    text-align: center
+}
 
 .eventSection {
- height: 800px;
- width: 800px;     
+    min-height: 80px;
+    width: 100%;     
+}
+
+.runSection {
+    min-height: 80px;
+    width: 100%;
 }

@@ -1,24 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="/favicon.ico" type="image/x-icon" rel="icon" />
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
-    <link rel="stylesheet" type="text/css" href="libs/bootstrap-3.3.7-dist/css/bootstrap.css">
-    <script src="libs/jquery-3.2.1.min.js"></script>
-    <script src="sketch.js"></script>
-  <style> body {padding: 0; margin: 0;} </style>
-  </head>
-  <body>
-      <form id="languageForm">
-          <input type="radio" name="radioLanguage" value="de" /> Deutsch <br />
-          <input type="radio" name="radioLanguage" value="en" /> Englisch <br />
-      </form>
-      
-      
-      <button class="eventButton btn btn-danger">Event generieren</button>
-      
-      <section class="eventSection">
-          <p class="showEvent"></p>
-      </section>
-  </body>
+    <head>
+        <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="libs/bootstrap-3.3.7-dist/css/bootstrap.css">
+        <script src="libs/jquery-3.2.1.min.js"></script>
+        <script src="sketch.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="headerLogo">
+                    <img src="img/logo-with-Text.png">
+                </div>
+            </header>
+
+            <div class="appLanguageDiv">
+                <form id="languageForm">
+                    <input type="radio" name="radioLanguage" value="de" /> Deutsch <br />
+                    <input type="radio" name="radioLanguage" value="en" checked="checked"/> Englisch <br />
+                </form>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <section class="eventSection">
+                        <p class="showEvent"></p>
+                        
+                        <button class="eventButton btn btn-danger">Event generieren</button>
+                    </section>
+
+                    
+
+                </div>
+                <div class="col-lg-6">
+
+                    <section class="runSection">
+                        <p class="showRun showRunType"></p>
+                        <p class="showRun showRunPayment"></p>
+                        <p class="showRun showRunEmployer"></p>
+                        <p class="showRun showRunTarget"></p>
+                        <p class="showRun showRunComplication"></p>
+                        
+                        <button class="runButton btn btn-default">Run generieren</button>
+                    </section>
+
+                    
+
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

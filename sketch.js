@@ -1,13 +1,22 @@
 $(document).ready(function() {
-   $(".eventButton").click(function() {
-       $(".showEvent").html(randomEvent());
-   });
+    $(".eventButton").click(function() {
+        $(".showEvent").html(randomEvent());
+    });
+    
+    $(".runButton").click(function() {
+        var actualRun = randomRun();
+        $(".showRunType").html(actualRun[0]);
+        $(".showRunPayment").html(actualRun[1]);
+        $(".showRunEmployer").html(actualRun[2]);
+        $(".showRunTarget").html(actualRun[3]);
+        $(".showRunComplication").html(actualRun[4]);
+    });
 });
 
 function randomEvent() {
-    
+
     var events = {};
-    
+
     events["en"] = [
         "Gang drive-by shooting",
         "Person screaming for help in an alley, getting mugged",
@@ -30,14 +39,70 @@ function randomEvent() {
         "A contact calls, they're in trouble!",
         "Thor shot right on the PCs' faces (aka rocks fall, everyone dies)"
     ];
-    
-        events["de"] = [
+
+    events["de"] = [
         "Eine Katze fällt vom Baum",
         "Vlad ruft an!"    
     ];
-    
+
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
     var eventNumber = Math.floor(Math.random() * events[appLanguage].length);
-    
+
     return (events[appLanguage][eventNumber]);
+}
+
+function randomRun() {
+
+    var Run = {};
+    var runType = {};
+    var runPayment;
+    var runEmployer = {};
+    var runTarget = {};
+    var runComplications = {};
+
+    runType["en"] = [
+        "Assasination",
+        "Blackmail",
+        "Bodyguard",
+        "Burglary",
+        "Counterfeit",
+        "Courier"
+    ];
+    
+    runEmployer["en"] = [
+        "Government",
+        "Shadowrunner",
+        "Private Person"
+    ];
+    
+    runTarget["en"] = [
+        "Major Corporate (AA Corp)",
+        "Crime Syndicate",
+        "Hospital"
+    ]
+    
+    runComplications["en"] = [
+        "Weather (Blizzard)",
+        "Weather (Heatwave)",
+        "Gangwar"
+    ]
+
+    runPayment = Math.floor(Math.random() * 10000);
+
+    var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
+    
+    var runTypeNumber = Math.floor(Math.random() * runType[appLanguage].length);
+    var runEmployerNumber = Math.floor(Math.random() * runEmployer[appLanguage].length);
+    var runTargetNumber = Math.floor(Math.random() * runTarget[appLanguage].length);
+    var runComplicationsNumber = Math.floor(Math.random() * runComplications[appLanguage].length);
+
+    Run[appLanguage] = [
+        [runType[appLanguage][runTypeNumber]],
+        [runPayment],
+        [runEmployer[appLanguage][runEmployerNumber]],
+        [runTarget[appLanguage][runTargetNumber]],
+        [runComplications[appLanguage][runComplicationsNumber]],
+    ] 
+    
+    return (Run[appLanguage]);
 }
