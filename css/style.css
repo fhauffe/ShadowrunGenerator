@@ -20,21 +20,23 @@ body {
 .container {
     min-height: 500px;
     margin-top: 40px;
+    margin-bottom: 40px;
     margin-left: auto;
     margin-right: auto;
     background-color: #fefefe;
 }
 
-.section btn {
-    text-align: center
+.contactsDiv .btn {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.eventSection {
+.eventDiv {
     min-height: 80px;
     width: 100%;     
 }
 
-.runSection {
+.runDiv {
     min-height: 80px;
     width: 100%;
 }

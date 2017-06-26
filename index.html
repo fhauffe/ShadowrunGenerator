@@ -14,39 +14,50 @@
                     <img src="img/logo-with-Text.png">
                 </div>
             </header>
-
             <div class="appLanguageDiv">
                 <form id="languageForm">
+                    <input type="radio" name="radioLanguage" value="en" checked="checked"/> Englisch
                     <input type="radio" name="radioLanguage" value="de" /> Deutsch <br />
-                    <input type="radio" name="radioLanguage" value="en" checked="checked"/> Englisch <br />
                 </form>
             </div>
-
             <div class="row">
                 <div class="col-lg-6">
-                    <section class="eventSection">
+                    <div class="eventDiv">
                         <p class="showEvent"></p>
-                        
                         <button class="eventButton btn btn-danger">Event generieren</button>
-                    </section>
-
-                    
-
+                    </div>
                 </div>
                 <div class="col-lg-6">
-
-                    <section class="runSection">
+                    <div class="runDiv">
                         <p class="showRun showRunType"></p>
                         <p class="showRun showRunPayment"></p>
                         <p class="showRun showRunEmployer"></p>
                         <p class="showRun showRunTarget"></p>
                         <p class="showRun showRunComplication"></p>
-                        
                         <button class="runButton btn btn-default">Run generieren</button>
-                    </section>
-
-                    
-
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contactsDiv">
+                        <p class="showContactRating"></p>
+                        <p class="showContactLoyality"></p>
+                        <p class="showContactProfession"></p>
+                        <p class="showContactGender"></p>
+                        <p class="showContactName"></p>
+                        <button class="contactButton btn btn-danger">Kontakt generieren</button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                <form id="genderForm">
+                    <input type="radio" name="radioGender" value="female" checked="checked"/> Female 
+                    <input type="radio" name="radioGender" value="male" /> Male <br />
+                </form>
+                    <div class="nameDiv">
+                        <p class="showMaleName"></p>
+                        <button class="nameButton btn btn-danger">Kontakt generieren</button>
+                    </div>
                 </div>
             </div>
         </div>
