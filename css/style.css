@@ -48,6 +48,10 @@ body {
     width: 100%;
 }
 
+.runDiv ul {
+    float: left;
+}
+
 .runDiv span{
     float: left;
     padding-right: 2px;

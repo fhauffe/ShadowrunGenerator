@@ -1,43 +1,43 @@
 $(document).ready(function() {
     ($('input[type=radio][name=radioLanguage]').change(function () {
         if(($('input[name=radioLanguage]:checked', '#languageForm').val()) == "de") {
-            
+
             /* Buttons German */
-            
+
             $(".runButton").html("Run generieren");
             $(".eventButton").html("Event generieren");
             $(".contactButton").html("Kontakt generieren");
             $(".nameButton").html("Namen generieren");
-            
+
             /* Labels German */
-            
+
             $(".runType").html("Typ:  ");
             $(".runPayment").html("Bezahlung: ");
             $(".runEmployer").html("Auftraggeber: ");
             $(".runTarget").html("Auftragsziel: ");
             $(".runComplications").html("Komplikationen: ");
-            
+
         } else if(($('input[name=radioLanguage]:checked', '#languageForm').val()) == "en") {
-            
+
             /* Buttons English */
-            
+
             $(".runButton").html("Generate Run");
             $(".eventButton").html("Generate Event");
             $(".contactButton").html("Generate Contact");
             $(".nameButton").html("Generate Name");
-            
+
             /* Labels English */
-            
+
             $(".runType").html("Type: ");
             $(".runPayment").html("Payment: ");
             $(".runEmployer").html("Employer: ");
             $(".runTarget").html("Target: ");
             $(".runComplications").html("Complications: ");
-            
-            
+
+
         }
     }));
-    
+
     $(".eventButton").click(function() {
         $(".showEvent").html(randomEvent());
     });
@@ -48,7 +48,9 @@ $(document).ready(function() {
         $(".showRunPayment").html(actualRun[1]);
         $(".showRunEmployer").html(actualRun[2]);
         $(".showRunTarget").html(actualRun[3]);
-        $(".showRunComplication").html(actualRun[4]);
+        $(".showRunComplication1").html(actualRun[4]);
+        $(".showRunComplication2").html(actualRun[5]);
+        $(".showRunComplication3").html(actualRun[6]);
     });
 
     $(".contactButton").click(function() {
@@ -120,7 +122,22 @@ function randomRun() {
         "Bodyguard",
         "Burglary",
         "Counterfeit",
-        "Courier"
+        "Courier",
+        "Datasteal",
+        "Destruction",
+        "Distraction",
+        "Encryption",
+        "Enforcment",
+        "Hacking",
+        "Hoax",
+        "Investigation",
+        "Plant",
+        "Retrieval",
+        "Security",
+        "Smuggling",
+        "Tailchaser",
+        "War",
+        "Wild Things"
     ];
 
     runType["de"] = [
@@ -146,8 +163,44 @@ function randomRun() {
 
     runEmployer["en"] = [
         "Government",
+        "Government (Utility/Service)",
+        "Government (Gvmt Office)",
+        "Government (Policlub)",
+        "Government (Military)",
+        "Government (Hospital)",
+        "Government (Law Enforcement)",
         "Shadowrunner",
-        "Private Person"
+        "Private Person",
+        "Major Corporate (AAA: Novatech)",
+        "Major Corporate (AAA: Ares Macrotechnology)",
+        "Major Corporate (AAA: Shiawase Corporation)",
+        "Major Corporate (AAA: Cross Applied Technologies)",
+        "Major Corporate (AAA: Yamatetsu)",
+        "Major Corporate (AAA: Mitsuhama Computer Technologies)",
+        "Major Corporate (AAA: Wuxing Inc)",
+        "Major Corporate (AAA: Saeder-Krupp Heavy Industries)",
+        "Minor Corporate (A Corp)",
+        "Minor Corporate (B Corp)",
+        "Minor Corporate (Local Corp)",
+        "Criminal (Gang)",
+        "Criminal (Shadowrunner)",
+        "Private Investigator",
+        "Private Law Enforcment",
+        "Mercenary Company",
+        "Private (Lower-Class)",
+        "Private (Middle-Class)",
+        "Private (Upper-Class)",
+        "Other (Cult/Conspiracy/Insect Spirits)",
+        "Other (Magical Threat)",
+        "Other (Contact/Friend of a Friend)",
+        "Other (Mysterious Stranger)",
+        "Other (Something Really Weird)",
+        "Other (Dragon/Critters)",
+        "Other (Enemy Interference)",
+        "Other (Contact/Friend of a Friend)",
+        "Location (Syndicate Turf)",
+        "Location (Gang Turf),"
+
     ];
 
     runEmployer["de"] = [
@@ -156,22 +209,44 @@ function randomRun() {
         "Private Person"
     ];
 
-    runTarget["en"] = [
-        "Major Corporate (AA Corp)",
-        "Crime Syndicate",
-        "Hospital"
-    ];
+    runTarget["en"] = runEmployer["en"];
 
-    runTarget["de"] = [
-        "Großunternehmen (AA Konzern)",
-        "Verbrecher Syndikat",
-        "Krankenhaus"
-    ];
+    runTarget["de"] = runEmployer["de"];
 
     runComplications["en"] = [
         "Weather (Blizzard)",
         "Weather (Heatwave)",
-        "Gangwar"
+        "Weather (Thunderstorm)",
+        "Weather (Light Rain)",
+        "Weather (Heavy Rain)",
+        "Weather (Fog)",
+        "Weather (High Winds)",
+        "Gangwar",
+        "Criminal (Vandalism)",
+        "Security (Security Rigger)",
+        "Transportation (Must use different form)",
+        "Transportation (Delays)",
+        "Transportation (Detour)",
+        "Transportation (Another City)",
+        "Transportation (Other Land)",
+        "Transportation (Other Continent)",
+        "Transportation (Gang Attack)",
+        "Transportation (Vehicle Breakdown)",
+        "Security (Guard Creatures)",
+        "Security (Heightened Security)",
+        "Security (Cybered Guard Creatures)",
+        "Security (Security Mage)",
+        "Security (Security Decker)",
+        "Criminal (Runners On-site - Different Goal)",
+        "Criminal (Runners On-site - Same Goal)",
+        "Criminal (Gang Raid)",
+        "Criminal (Recent Activity)",
+        "Criminal (Protests/Riots)",
+        "Other (Other Obligations)",
+        "Other (Critter Infestation",
+        "Other (Screwjob)",
+        "Other (Hunted Interference)",
+        "Other (Conflicting Jobs)"
     ];
 
     runComplications["de"] = [
@@ -180,21 +255,46 @@ function randomRun() {
         "Bandenkrieg"
     ];
 
-    runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
+    var paymentCheck = (Math.floor(Math.random() * 10));
+    if(paymentCheck < 8){
+        runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
+        if(runPayment == 0) {
+            runPayment = "5000";
+        }
+        runPayment += " &#165;";
+    }else{
+        runPayment = Math.floor(Math.random() * 10) * 100 * 2;
+        if(runPayment == 0) {
+            runPayment = 750;
+        }
+        days = Math.floor(Math.random() * 14)
+        
+        if(days == 0){
+            days = 5;
+        }
+        runPayment += "&#165; per Day for ";
+        runPayment += days;
+        runPayment += " days";
+    }
+
 
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
 
     var runTypeNumber = Math.floor(Math.random() * runType[appLanguage].length);
     var runEmployerNumber = Math.floor(Math.random() * runEmployer[appLanguage].length);
     var runTargetNumber = Math.floor(Math.random() * runTarget[appLanguage].length);
-    var runComplicationsNumber = Math.floor(Math.random() * runComplications[appLanguage].length);
+    var runComplicationsNumber1 = Math.floor(Math.random() * runComplications[appLanguage].length);
+    var runComplicationsNumber2 = Math.floor(Math.random() * runComplications[appLanguage].length);
+    var runComplicationsNumber3 = Math.floor(Math.random() * runComplications[appLanguage].length);
 
     Run[appLanguage] = [
         [runType[appLanguage][runTypeNumber]],
         [runPayment],
         [runEmployer[appLanguage][runEmployerNumber]],
         [runTarget[appLanguage][runTargetNumber]],
-        [runComplications[appLanguage][runComplicationsNumber]],
+        [runComplications[appLanguage][runComplicationsNumber1]],
+        [runComplications[appLanguage][runComplicationsNumber2]],
+        [runComplications[appLanguage][runComplicationsNumber3]],
     ] 
 
     return (Run[appLanguage]);
