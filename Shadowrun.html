@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="/favicon.ico" type="image/x-icon" rel="icon" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shadowrun Random Generator</title>
+        <link href="images/favicon.ico" type="images/x-icon" rel="icon" />
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="libs/bootstrap-3.3.7-dist/css/bootstrap.css">
-        <script src="libs/jquery-3.2.1.min.js"></script>
-        <script src="sketch.js"></script>
+        <link rel="stylesheet" type="text/css" href="libarys/bootstrap-3.3.7-dist/css/bootstrap.css">
+        <script src="libarys/jquery-3.2.1.min.js"></script>
+        <script src="app.js"></script>
     </head>
     <body>
         <div class="container">
             <header>
                 <div class="headerLogo">
-                    <img src="img/logo-with-Text.png">
+                    <img src="images/logo-with-Text.png">
                 </div>
             </header>
             <div class="appLanguageDiv">
@@ -29,11 +32,11 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="runDiv">
-                        <p class="showRun showRunType"></p>
-                        <p class="showRun showRunPayment"></p>
-                        <p class="showRun showRunEmployer"></p>
-                        <p class="showRun showRunTarget"></p>
-                        <p class="showRun showRunComplication"></p>
+                        <span>Type: <p class="showRun showRunType"></p></span>
+                        <span>Payment:<p class="showRun showRunPayment"></p>
+                        <span>Employer:<p class="showRun showRunEmployer"></p>
+                        <span>Target:<p class="showRun showRunTarget"></p>
+                        <span>Complications:<p class="showRun showRunComplication"></p>
                         <button class="runButton btn btn-default">Run generieren</button>
                     </div>
                 </div>
@@ -56,7 +59,7 @@
                 </form>
                     <div class="nameDiv">
                         <p class="showMaleName"></p>
-                        <button class="nameButton btn btn-danger">Kontakt generieren</button>
+                        <button class="nameButton btn btn-danger">Namen generieren</button>
                     </div>
                 </div>
             </div>
