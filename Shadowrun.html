@@ -23,25 +23,39 @@
                     <input type="radio" name="radioLanguage" value="de" /> Deutsch <br />
                 </form>
             </div>
-            <div class="row">
+            <div class="row row-eq-height">
                 <div class="col-lg-6">
                     <div class="eventDiv">
                         <p class="showEvent"></p>
-                        <button class="eventButton btn btn-danger">Event generieren</button>
+                        <button class="eventButton btn btn-danger">Generate Event</button>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="runDiv">
-                        <span>Type: <p class="showRun showRunType"></p></span>
-                        <span>Payment:<p class="showRun showRunPayment"></p>
-                        <span>Employer:<p class="showRun showRunEmployer"></p>
-                        <span>Target:<p class="showRun showRunTarget"></p>
-                        <span>Complications:<p class="showRun showRunComplication"></p>
-                        <button class="runButton btn btn-default">Run generieren</button>
+                        <div>
+                            <span class="runType">Type:</span>
+                            <p class="showRun showRunType">&nbsp;</p>
+                        </div>
+                        <div>
+                            <span class="runPayment">Payment:</span>
+                            <p class="showRun showRunPayment">&nbsp;</p>
+                        </div>
+                        <div><span class="runEmployer">Employer: </span>
+                            <p class="showRun showRunEmployer">&nbsp;</p>
+                        </div>
+                        <div>
+                            <span class="runTarget">Target: </span>
+                            <p class="showRun showRunTarget">&nbsp;</p>
+                        </div>
+                        <div>
+                            <span class="runComplications">Complications: </span>
+                            <p class="showRun showRunComplication">&nbsp;</p>
+                        </div>
+                        <button class="runButton btn btn-default">Generate Run</button>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row-eq-height">
                 <div class="col-lg-6">
                     <div class="contactsDiv">
                         <p class="showContactRating"></p>
@@ -49,17 +63,17 @@
                         <p class="showContactProfession"></p>
                         <p class="showContactGender"></p>
                         <p class="showContactName"></p>
-                        <button class="contactButton btn btn-danger">Kontakt generieren</button>
+                        <button class="contactButton btn btn-danger">Generate Contact</button>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                <form id="genderForm">
-                    <input type="radio" name="radioGender" value="female" checked="checked"/> Female 
-                    <input type="radio" name="radioGender" value="male" /> Male <br />
-                </form>
+                    <form id="genderForm">
+                        <input type="radio" name="radioGender" value="female" checked="checked"/> Female 
+                        <input type="radio" name="radioGender" value="male" /> Male <br />
+                    </form>
                     <div class="nameDiv">
                         <p class="showMaleName"></p>
-                        <button class="nameButton btn btn-danger">Namen generieren</button>
+                        <button class="nameButton btn btn-danger">Generate Name</button>
                     </div>
                 </div>
             </div>

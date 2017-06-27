@@ -1,4 +1,43 @@
 $(document).ready(function() {
+    ($('input[type=radio][name=radioLanguage]').change(function () {
+        if(($('input[name=radioLanguage]:checked', '#languageForm').val()) == "de") {
+            
+            /* Buttons German */
+            
+            $(".runButton").html("Run generieren");
+            $(".eventButton").html("Event generieren");
+            $(".contactButton").html("Kontakt generieren");
+            $(".nameButton").html("Namen generieren");
+            
+            /* Labels German */
+            
+            $(".runType").html("Typ:  ");
+            $(".runPayment").html("Bezahlung: ");
+            $(".runEmployer").html("Auftraggeber: ");
+            $(".runTarget").html("Auftragsziel: ");
+            $(".runComplications").html("Komplikationen: ");
+            
+        } else if(($('input[name=radioLanguage]:checked', '#languageForm').val()) == "en") {
+            
+            /* Buttons English */
+            
+            $(".runButton").html("Generate Run");
+            $(".eventButton").html("Generate Event");
+            $(".contactButton").html("Generate Contact");
+            $(".nameButton").html("Generate Name");
+            
+            /* Labels English */
+            
+            $(".runType").html("Type: ");
+            $(".runPayment").html("Payment: ");
+            $(".runEmployer").html("Employer: ");
+            $(".runTarget").html("Target: ");
+            $(".runComplications").html("Complications: ");
+            
+            
+        }
+    }));
+    
     $(".eventButton").click(function() {
         $(".showEvent").html(randomEvent());
     });
