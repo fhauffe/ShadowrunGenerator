@@ -123,7 +123,7 @@ function randomRun() {
         "Gangwar"
     ]
 
-    runPayment = Math.floor(Math.random() * 10000);
+    runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
 
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
 
@@ -252,14 +252,13 @@ function randomName(gender = "") {
     if(Array.isArray(gender)) {
         var genderNumber = Math.floor(Math.random() * gender.length);
         var gender = gender[genderNumber];
-        alert(gender);
-        var firstNameNumber = Math.floor(Math.random() * firstName[gender.length]);
+        
+        var firstNameNumber = Math.floor(Math.random() *firstName[gender].length);
         var lastNameNumber = Math.floor(Math.random() * lastName.length);
     } else {
         var firstNameNumber = Math.floor(Math.random() * firstName[gender].length);
         var lastNameNumber = Math.floor(Math.random() * lastName.length);
     }
-
 
     return (firstName[gender][firstNameNumber] + " " + lastName[lastNameNumber]);
 }

@@ -26,9 +26,9 @@ body {
     background-color: #fefefe;
 }
 
-.contactsDiv .btn {
+.btn {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 20px !important;
 }
 
 .eventDiv {
