@@ -698,26 +698,24 @@ function randomNSC() {
     
     nscName = randomName(nscGender[appLanguage][nscGenderNumber]);
     
-    alert(nscGender[appLanguage][nscGenderNumber]);
-    
     var nscRaceNumber = Math.floor(Math.random() * nscRace[appLanguage].length);
     
    
     
-    nscHeight = Math.floor(Math.random() * (220 - 120) + 120);
-    nscWeight = Math.floor(Math.random() * (200 - 50) + 50);
-    nscAge = Math.floor(Math.random() * (100 - 18) + 18);
+    nscHeight = Math.floor(Math.random()*(220-150+1)+150);
+    nscWeight = Math.floor(Math.random()*(200-50+1)+50); 
+    nscAge = Math.floor(Math.random()*(100-18+1)+18);
     
      if(nscRace[appLanguage][nscRaceNumber] == "Troll") {
-        nscHeight = Math.floor(Math.random() * (300 - 200) + 200);
-        nscWeight = Math.floor(Math.random() * (400 - 150) + 150);
-        nscAge = Math.floor(Math.random() * (55 - 18) + 18);
+        nscHeight = Math.floor(Math.random()*(350-200+1)+200);
+        nscWeight = Math.floor(Math.random()*(600-180)+180);
+        nscAge = Math.floor(Math.random()*(60-18+1)+18);
      }
     
     if(nscRace[appLanguage][nscRaceNumber] == "Dwarf") {
-        nscHeight = Math.floor(Math.random() * (160 - 120) + 120);
-        nscWeight = Math.floor(Math.random() * (150 - 50) + 50);
-        nscAge = Math.floor(Math.random() * (150 - 18) + 18);
+        nscHeight = Math.floor(Math.random()*(160-120+1)+120);
+        nscWeight = Math.floor(Math.random()*(150-50+1)+50);
+        nscAge = Math.floor(Math.random()*(150-18+1)+18);
      } 
         
    
@@ -787,7 +785,6 @@ function randomNSC() {
         var nscPreviouslyConvictedNumber = Math.floor(Math.random() * nscAddiction[appLanguage].length);
     }
     
-     var nscRaceNumber = Math.floor(Math.random() * nscRace[appLanguage].length);
      var nscEyeColorNumber = Math.floor(Math.random() * nscEyeColor[appLanguage].length);
      var nscEthnieNumber = Math.floor(Math.random() * nscEthnie[appLanguage].length);
     
