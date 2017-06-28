@@ -430,7 +430,7 @@ function randomContact() {
     var contactProfessionNumber = Math.floor(Math.random() * contactProfession[appLanguage].length);
     var contactGenderNumber = Math.floor(Math.random() * contactGender[appLanguage].length);
     
-    contactName = randomName(contactGenderNumber);
+    contactName = randomName(contactGender[appLanguage][contactGenderNumber]);
 
     Contact[appLanguage] = [
         [contactRating[appLanguage][contactRatingNumber]],
@@ -446,15 +446,10 @@ function randomContact() {
 function randomName(gender = "") {
     var firstName = {};
     var lastName = {};
-
+    
     if(gender == false) { 
         gender = ($('input[name=radioGender]:checked', '#genderForm').val());
-    } else {
-        gender = [
-            "male",
-            "female"
-        ]
-    }
+    } 
 
     firstName["male"] = [
         "James",	
@@ -483,16 +478,12 @@ function randomName(gender = "") {
         "Davis"
     ];
 
-    if(Array.isArray(gender)) {
-        var genderNumber = Math.floor(Math.random() * gender.length);
-        var gender = gender[genderNumber];
 
-        var firstNameNumber = Math.floor(Math.random() *firstName[gender].length);
-        var lastNameNumber = Math.floor(Math.random() * lastName.length);
-    } else {
+        var genderNumber = Math.floor(Math.random() * gender.length);
+
         var firstNameNumber = Math.floor(Math.random() * firstName[gender].length);
         var lastNameNumber = Math.floor(Math.random() * lastName.length);
-    }
+    
 
     return (firstName[gender][firstNameNumber] + " " + lastName[lastNameNumber]);
 }
@@ -536,6 +527,11 @@ function randomNSC() {
     var nscPreviouslyConvicted = [];
     
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
+    
+    nscGender['en'] = [
+       "male",
+       "female"
+    ];
     
     nscHairColor['en'] = [
         "blond",
@@ -698,8 +694,11 @@ function randomNSC() {
         "Left Arm"
     ]; 
 
+    var nscGenderNumber = Math.floor(Math.random() * nscGender[appLanguage].length);
     
-    nscName = "Frank Hauffe";
+    nscName = randomName(nscGender[appLanguage][nscGenderNumber]);
+    
+    alert(nscGender[appLanguage][nscGenderNumber]);
     
     var nscRaceNumber = Math.floor(Math.random() * nscRace[appLanguage].length);
     
@@ -721,9 +720,7 @@ function randomNSC() {
         nscAge = Math.floor(Math.random() * (150 - 18) + 18);
      } 
         
-    nscGender[appLanguage] = "male";
-    
-    
+   
     
      var nscHairColorNumber = Math.floor(Math.random() * nscHairColor[appLanguage].length);
      var nscHairStyleNumber = Math.floor(Math.random() * nscHairStyle[appLanguage].length);
@@ -811,7 +808,7 @@ function randomNSC() {
     
     NSC[appLanguage] = [
         [nscName],
-        [nscGender],
+        [nscGender[appLanguage][nscGenderNumber]],
         [nscAge],
         [nscRace[appLanguage][nscRaceNumber]],
         [nscEthnie[appLanguage][nscEthnieNumber]],
