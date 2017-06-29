@@ -66,7 +66,7 @@ $(document).ready(function() {
         var actualName = randomName();
         $(".showMaleName").html(actualName);
     });
-    
+
     $(".nscButton").click(function() {
         var actualNSC = randomNSC();
         $(".showNSCName").html(actualNSC[0]);
@@ -80,28 +80,33 @@ $(document).ready(function() {
         $(".showNSCHairStyle").html(actualNSC[8]);
         $(".showNSCBeard").html(actualNSC[9]);
         $(".showNSCEyeColor").html(actualNSC[10]);
-        
+
         $(".showNSCAssessories").html(actualNSC[11]);
         $(".showNSCAbnormalities").html(actualNSC[12]);
-        $(".showNSCTop").html(actualNSC[13]);
-        $(".showNSCPants").html(actualNSC[14]);
-        $(".showNSCBoots").html(actualNSC[15]);
-        
-        $(".showNSCJob").html(actualNSC[16]);
-        $(".showNSCHobby").html(actualNSC[17]);
-        $(".showNSCReligion").html(actualNSC[18]);
-        
-        $(".showNSCSexuality").html(actualNSC[19]);
-        $(".showNSCPersonality").html(actualNSC[20]);
-        
-        $(".showNSCSmoker").html(actualNSC[21]);
-        $(".showNSCDrinker").html(actualNSC[22]);
-        $(".showNSCAddiction").html(actualNSC[23]);
-        
-        $(".showNSCCyberware").html(actualNSC[24]);        
-        $(".showNSCAwaken").html(actualNSC[25]);        
-        $(".showNSCPreviouslyConvicted").html(actualNSC[26]);        
-        
+        $(".showNSCClothStyle").html(actualNSC[13]);
+
+        $(".showNSCJob").html(actualNSC[14]);
+        $(".showNSCHobby").html(actualNSC[15]);
+        $(".showNSCReligion").html(actualNSC[16]);
+
+        $(".showNSCSexuality").html(actualNSC[17]);
+        $(".showNSCPersonality").html(actualNSC[18]);
+
+        $(".showNSCSmoker").html(actualNSC[19]);
+        $(".showNSCDrinker").html(actualNSC[20]);
+        $(".showNSCAddiction").html(actualNSC[21]);
+
+        $(".showNSCCyberware").html(actualNSC[22]);        
+        $(".showNSCAwaken").html(actualNSC[23]);        
+        $(".showNSCPreviouslyConvicted").html(actualNSC[24]);        
+
+    });
+
+    $(".locationButton").click(function() {
+        var actualLocation = randomLocation();
+        $(".showLocationCity").html(actualLocation[0]);
+        $(".showLocationDistrict").html(actualLocation[1]);
+        $(".showLocationPlace").html(actualLocation[2]);
     });
 
 });
@@ -307,7 +312,7 @@ function randomRun() {
             runPayment = 750;
         }
         days = Math.floor(Math.random() * 14)
-        
+
         if(days == 0){
             days = 5;
         }
@@ -429,7 +434,7 @@ function randomContact() {
     var contactLoyalityNumber = Math.floor(Math.random() * contactLoyality[appLanguage].length);
     var contactProfessionNumber = Math.floor(Math.random() * contactProfession[appLanguage].length);
     var contactGenderNumber = Math.floor(Math.random() * contactGender[appLanguage].length);
-    
+
     contactName = randomName(contactGender[appLanguage][contactGenderNumber]);
 
     Contact[appLanguage] = [
@@ -439,14 +444,14 @@ function randomContact() {
         [contactGender[appLanguage][contactGenderNumber]],
         [contactName]
     ];
-    
+
     return (Contact[appLanguage]);
 }
 
 function randomName(gender = "") {
     var firstName = {};
     var lastName = {};
-    
+
     if(gender == false) { 
         gender = ($('input[name=radioGender]:checked', '#genderForm').val());
     } 
@@ -457,7 +462,27 @@ function randomName(gender = "") {
         "Robert",
         "Michael",	
         "William",	
-        "Frank"
+        "Frank",
+        "Noah",
+        "Liam", 
+        "William",
+        "Mason",
+        "James",
+        "Benjamin",
+        "Jacob",
+        "Michael",
+        "Elijah",
+        "Ethan",
+        "Alexander",
+        "Oliver",
+        "Daniel",
+        "Lucas",
+        "Matthew",
+        "Aiden",
+        "Jackson",
+        "Logan",
+        "David",
+        "Joseph",
     ];
 
     firstName["female"] = [
@@ -466,39 +491,122 @@ function randomName(gender = "") {
         "Susan",
         "Rose",	
         "Jeanne",	
-        "Ingebork"
+        "Ingebork",
+        "Emma",
+        "Olivia",
+        "Ava",
+        "Sophia",
+        "Isabella",    
+        "Mia",
+        "Charlotte",
+        "Abigail",
+        "Emily",
+        "Harper",
+        "Amelia",
+        "Evelyn",
+        "Elizabeth",
+        "Sofia",
+        "Madison",
+        "Avery",
+        "Ella",
+        "Scarlett",
+        "Grace",
+        "Chloe"
     ];
 
     lastName = [
+    "Anderson",
+    "Archer",
+"Armstrong",
+        "Baker",
+        "Barber",
+        "Bennett",
+        "Bishop",
+        "Black",
+        "Blair",
+        "Brewster",
+        "Brown",
+        "Carter",
+        "Chaplin",
+        "Coleman",
+        "Collister",
+        "Connor",
+        "Cunningham",
+        "Dearing",
+        "Edison",
+        "Edwards",
+        "Eliot",
+        "Franklin",
+        "Garcia",
+        "Hanson",
+        "Harper", 
+        "Harsen",
+        "Havering",
+        "Hernandez",
+        "Hilton",
+        "Hobbs",
+        "Jackson",
+        "Jameson",
+        "Jenkins",
+        "Johnson",
+        "Jones",
+        "King",
+        "Lopez",
+        "Malone",
+        "Martin",
+        "Martinez",
+        "Mason",
+        "Mathewson",
+        "Michaels",
+        "Miller",
+        "Moore",
+        "Muller",
+        "Nolan",
+        "Norris",
+        "Parker",
+        "Perez",
+        "Ramirez",
+        "Rodriguez",
+        "Sanchez",
+        "Sawyer",
+        "Shoemaker",
         "Smith",
-        "Johnson",	
-        "Williams",	
-        "Jones",	
-        "Brown",	
-        "Davis"
+        "Stark",
+        "Stevenson",
+        "Stone",
+        "Thomas",
+        "Thompson",
+        "Torres",
+        "Warren",
+        "Ward",
+        "Wayne",
+        "West",
+        "White",
+        "Williams",
+        "Young"
     ];
 
 
-        var genderNumber = Math.floor(Math.random() * gender.length);
+    var genderNumber = Math.floor(Math.random() * gender.length);
 
-        var firstNameNumber = Math.floor(Math.random() * firstName[gender].length);
-        var lastNameNumber = Math.floor(Math.random() * lastName.length);
-    
+    var firstNameNumber = Math.floor(Math.random() * firstName[gender].length);
+    var lastNameNumber = Math.floor(Math.random() * lastName.length);
+
 
     return (firstName[gender][firstNameNumber] + " " + lastName[lastNameNumber]);
 }
 
 function randomNSC() {
-    
+
     var NSC = [];
-    
+
     var nscName = [];
     var nscGender = [];
     var nscAge = [];
     var nscHeight;
     var nscWeight;
     var nscStature = [];
-    
+
     var nscHairColor = [];
     var nscHairStyle = [];
     var nscBeard = [];
@@ -506,33 +614,31 @@ function randomNSC() {
     var nscRace = [];
     var nscEthnie = [];
     var nscSexualOrientation = [];
-    
+
     var nscAccessories = [];
-    var nscTop = [];
-    var nscPants = [];
-    var nscBoots = [];
-    
+    var nscClothStyle = [];
+
     var nscJob = [];
     var nscPersonality = [];
     var nscAbnormalities = [];
     var nscReligion = [];
     var nscHobby = [];
-    
+
     var nscSmoker = [];
     var nscDrinker = [];
     var nscAddiction = [];
-    
+
     var nscCyberware = [];
     var nscAwaken = [];
     var nscPreviouslyConvicted = [];
-    
+
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
-    
+
     nscGender['en'] = [
-       "male",
-       "female"
+        "male",
+        "female"
     ];
-    
+
     nscHairColor['en'] = [
         "blond",
         "black",
@@ -542,29 +648,30 @@ function randomNSC() {
         "white",
         "blue",
     ];
-    
+
     nscHairStyle['en'] = [
         "long",
         "short",
         "ponytail",
         "bald head",
         "mowhawk",
-        "undercut"
+        "undercut",
+        "Long and Grungy"
     ];
-    
+
     nscBeard['en'] = [
         "none",
         "short",
         "full",
         "snauzer"
     ]
-    
+
     nscEyeColor['en'] = [
         "blue",
         "brown",
         "green",
     ];
-    
+
     nscRace['en'] = [
         "Human",
         "Elf",
@@ -572,28 +679,33 @@ function randomNSC() {
         "Ork",
         "Dwarf"
     ];
-    
+
     nscEthnie['en'] = [
-        "white",
-        "black",
-        "asian",
-        "mexican",
-        "indianer "
+        "Anglo-American",
+        "African",
+        "European",
+        "Japanese/Koren",
+        "Chinese/Southern Asia",
+        "Pacific Islander",
+        "Hispanic-American",
+        "South American",
+        "Black American",
+        "Central European"
     ];
-    
+
     nscEyeColor['en'] = [
         "blue",
         "brown",
         "green",
     ];
-    
+
     nscSexualOrientation['en'] = [
         "straight",
         "gay",
         "bi",
         "none"
     ];
-    
+
     nscAccessories['en'] = [
         "Glasses",
         "Bracelet (left Hand)",
@@ -601,47 +713,48 @@ function randomNSC() {
         "Ring (lift Hand)",
         "Ring (right Hand)",
     ];
-    
-    nscTop['en'] = [
-        "Shirt",
-        "Leatherjacket",
-        "Hoodie",
+
+    nscClothStyle['en'] = [
+        "Biker Leahter",
+        "Blue Jeans",
+        "Fancy Suit", 
+        "Ripped Clothing" ,
+        "Hot Shorts",
+        "High Fashion", 
+        "Military Garb",
+        "Average Clothes", 
+        "80s Retro",
+        "Costume",
     ];
-    
-    nscPants['en'] = [
-        "Jeans",
-        "Shorts",
-        "Cargo Pants",
-        "Baggy Pants"
-    ];
-    
-    nscBoots['en'] = [
-        "Sneaker",
-        "Boots",
-        "FlipFlop",
-    ];
-    
+
+
     nscJob['en'] = [
         "Policemen",
         "Firefighter",
         "Busdriver",
     ];
-    
+
     nscPersonality['en'] = [
         "normal",
         "depressiv",
         "sadist",
         "psychopath",
     ];
-    
+
     nscAbnormalities['en'] = [
-        "Scar (Face)",
-        "Scar (Head)",
-        "Scar (Chest)",
-        "Scar (Chest)",
-        "Scar (Arm left)",
+        "None",
+        "Tattoos",
+        "Kick Ass Attitude Glasses",
+        "Punked Out Glowing Tattoos",
+        "Crazy Colors Spiked Gloves and Belt",
+        "Interesting Piercngs",
+        "Stretched Ear Piercings",
+        "Clean Nail Polish that changes color",
+        "Shaggy High Heels or Platform boots",
+        "Crazy Colored Contacts",
+        "Scarification Art"
     ];
-    
+
     nscReligion['en'] = [
         "Atheist",
         "Christian",
@@ -653,7 +766,7 @@ function randomNSC() {
         "Cinema",
         "Pool Billiard",
     ];
-    
+
     nscPreviouslyConvicted['en'] = [
         "No",
         "Smuggling",
@@ -661,7 +774,7 @@ function randomNSC() {
         "Drugs",
         "Grand Theft"
     ]
-    
+
     nscAddiction["en"] = [
         "none",
         "Alcohol",
@@ -669,22 +782,22 @@ function randomNSC() {
         "BTL-Chips",
         "Gambling"
     ]
-    
+
     nscSmoker["en"] = [
         "No",
         "Yes"
     ]
-    
+
     nscDrinker["en"] = [
         "No",
         "Yes"
     ]
-    
+
     nscAwaken["en"] = [
         "No",
         "Yes"
     ]
-    
+
     nscCyberware["en"] = [
         "none",
         "Left Arm",
@@ -695,114 +808,122 @@ function randomNSC() {
     ]; 
 
     var nscGenderNumber = Math.floor(Math.random() * nscGender[appLanguage].length);
-    
+
     nscName = randomName(nscGender[appLanguage][nscGenderNumber]);
-    
+
     var nscRaceNumber = Math.floor(Math.random() * nscRace[appLanguage].length);
-    
-   
-    
+
+
+
     nscHeight = Math.floor(Math.random()*(220-150+1)+150);
     nscWeight = Math.floor(Math.random()*(200-50+1)+50); 
     nscAge = Math.floor(Math.random()*(100-18+1)+18);
-    
-     if(nscRace[appLanguage][nscRaceNumber] == "Troll") {
+
+    if(nscRace[appLanguage][nscRaceNumber] == "Troll") {
         nscHeight = Math.floor(Math.random()*(350-200+1)+200);
         nscWeight = Math.floor(Math.random()*(600-180)+180);
         nscAge = Math.floor(Math.random()*(60-18+1)+18);
-     }
-    
+    }
+
     if(nscRace[appLanguage][nscRaceNumber] == "Dwarf") {
         nscHeight = Math.floor(Math.random()*(160-120+1)+120);
         nscWeight = Math.floor(Math.random()*(150-50+1)+50);
         nscAge = Math.floor(Math.random()*(150-18+1)+18);
-     } 
-        
-   
-    
-     var nscHairColorNumber = Math.floor(Math.random() * nscHairColor[appLanguage].length);
-     var nscHairStyleNumber = Math.floor(Math.random() * nscHairStyle[appLanguage].length);
-    
+    } 
+
+    nscHeight = nscHeight / 100;
+    nscHeight += " m";
+
+    nscWeight += " kg";
+
+    var nscHairColorNumber = Math.floor(Math.random() * nscHairColor[appLanguage].length);
+    var nscHairStyleNumber = Math.floor(Math.random() * nscHairStyle[appLanguage].length);
+
     if(nscGender[appLanguage] == "male") {
         var nscBeardNumber = Math.floor(Math.random() * nscBeard[appLanguage].length);
     } else {
         nscBeardNumber = 0;
     }
-    
+
     var sexualityCheck = (Math.floor(Math.random() * 10));
     if(sexualityCheck < 7) {
-         var nscSexualOrientationNumber = 0;
+        var nscSexualOrientationNumber = 0;
     }else{
         var nscSexualOrientationNumber = Math.floor(Math.random() * nscSexualOrientation[appLanguage].length);
     }
-    
+
     var personalityCheck = (Math.floor(Math.random() * 10));
     if(personalityCheck < 7) {
         nscPersonalityNumber = 0;
     }else{
         nscPersonalityNumber = Math.floor(Math.random() * nscPersonality[appLanguage].length);
     }
-    
+
     var drinkerCheck = (Math.floor(Math.random() * 10));
     if(drinkerCheck < 4) {
         nscDrinkerNumber = 0;
     }else{
         nscDrinkerNumber = 1;
     }
-    
+
     var smokerCheck = (Math.floor(Math.random() * 10));
     if(smokerCheck < 5) {
         nscSmokerNumber = 0;
     }else{
         nscSmokerNumber = 1;
     }
-        
+
     var addictionCheck = (Math.floor(Math.random() * 10));
     if(drinkerCheck < 7) {
         var nscAddictionNumber = 0;
     }else{
         var nscAddictionNumber = Math.floor(Math.random() * nscAddiction[appLanguage].length);
     }
-     
+
     var cyberwareCheck = (Math.floor(Math.random() * 10));
     if(cyberwareCheck < 6) {
         var nscCyberwareNumber = 0;
     }else{
         var nscCyberwareNumber = Math.floor(Math.random() * nscAddiction[appLanguage].length);
     }
-    
+
     var awakenCheck = (Math.floor(Math.random() * 100000));
     if(awakenCheck == 100000) {
         var nscAwakenNumber = 1;
     }else{
         var nscAwakenNumber = 0;
     }
-    
+
     var policeRecordCheck = (Math.floor(Math.random() * 10));
     if(policeRecordCheck < 7) {
         var nscPreviouslyConvictedNumber = 0;
     }else{
         var nscPreviouslyConvictedNumber = Math.floor(Math.random() * nscAddiction[appLanguage].length);
     }
+    var abnormalitiesCheck = (Math.floor(Math.random() * 10));
+    if(abnormalitiesCheck < 7) {
+        var nscAbnormalitiesNumber = 0;
+    }else{
+        var nscAbnormalitiesNumber = Math.floor(Math.random() * nscAbnormalities[appLanguage].length);
+    }
     
-     var nscEyeColorNumber = Math.floor(Math.random() * nscEyeColor[appLanguage].length);
-     var nscEthnieNumber = Math.floor(Math.random() * nscEthnie[appLanguage].length);
-    
-     var nscAccessoriesNumber = Math.floor(Math.random() * nscAccessories[appLanguage].length);
-     var nscTopNumber = Math.floor(Math.random() * nscTop[appLanguage].length);
-     var nscPantsNumber = Math.floor(Math.random() * nscPants[appLanguage].length);
-     var nscBootsNumber = Math.floor(Math.random() * nscBoots[appLanguage].length);
-     
-     var nscJobNumber = Math.floor(Math.random() * nscJob[appLanguage].length);
-    
-     var nscAbnormalitiesNumber = Math.floor(Math.random() * nscAbnormalities[appLanguage].length);
-     var nscReligionNumber = Math.floor(Math.random() * nscReligion[appLanguage].length);
-     var nscHobbyNumber = Math.floor(Math.random() * nscHobby[appLanguage].length);
-     
-    var nscPreviouslyConvictedNumber = Math.floor(Math.random() * nscPreviouslyConvicted[appLanguage].length);
-    
+    var religionCheck = (Math.floor(Math.random() * 10));
+     if(policeRecordCheck < 7) {
+        var nscReligionNumber = 0;
+     } else {
+        var nscReligionNumber = Math.floor(Math.random() * nscReligion[appLanguage].length);
+     }
 
-    
+    var nscEyeColorNumber = Math.floor(Math.random() * nscEyeColor[appLanguage].length);
+    var nscEthnieNumber = Math.floor(Math.random() * nscEthnie[appLanguage].length);
+
+    var nscAccessoriesNumber = Math.floor(Math.random() * nscAccessories[appLanguage].length);
+    var nscClothStyleNumber = Math.floor(Math.random() * nscClothStyle[appLanguage].length);
+
+    var nscJobNumber = Math.floor(Math.random() * nscJob[appLanguage].length);
+
+    var nscHobbyNumber = Math.floor(Math.random() * nscHobby[appLanguage].length);
+
     NSC[appLanguage] = [
         [nscName],
         [nscGender[appLanguage][nscGenderNumber]],
@@ -815,28 +936,108 @@ function randomNSC() {
         [nscHairStyle[appLanguage][nscHairStyleNumber]],
         [nscBeard[appLanguage][nscBeardNumber]],
         [nscEyeColor[appLanguage][nscEyeColorNumber]],
-        
+
         [nscAccessories[appLanguage][nscAccessoriesNumber]],
         [nscAbnormalities[appLanguage][nscAbnormalitiesNumber]],
-        [nscTop[appLanguage][nscTopNumber]],
-        [nscPants[appLanguage][nscPantsNumber]],
-        [nscBoots[appLanguage][nscBootsNumber]],
-        
+        [nscClothStyle[appLanguage][nscClothStyleNumber]],
+
         [nscJob[appLanguage][nscJobNumber]],
         [nscHobby[appLanguage][nscHobbyNumber]],
         [nscReligion[appLanguage][nscReligionNumber]],
-        
+
         [nscSexualOrientation[appLanguage][nscSexualOrientationNumber]],
         [nscPersonality[appLanguage][nscPersonalityNumber]],
-        
+
         [nscSmoker[appLanguage][nscSmokerNumber]],
         [nscDrinker[appLanguage][nscDrinkerNumber]],
         [nscAddiction[appLanguage][nscAddictionNumber]],
-        
+
         [nscCyberware[appLanguage][nscCyberwareNumber]],
         [nscAwaken[appLanguage][nscAwakenNumber]],
         [nscPreviouslyConvicted[appLanguage][nscPreviouslyConvictedNumber]],
     ];
-    
+
     return NSC[appLanguage];
+}
+
+function randomLocation() {
+
+    var location = [];
+
+    var locationCity = [];
+    var locationDistrict = [];
+    var locationPlace = [];
+
+    var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
+
+    locationCity = [
+        "Seattle",
+        "Berlin"
+    ];
+
+    locationDistrict["Seattle"] = [
+        "Auburn",
+        "Bellevue",
+        "Council Island",
+        "Downtown",
+        "Everett",	
+        "Fort Lewis",	
+        "Outremer",	
+        "Puyallup",	
+        "Redmond",
+        "Renton",	
+        "Snohomish",	
+        "Tacoma"
+    ];
+
+    locationDistrict["Berlin"] = [
+        "AGC Siemensstadt",
+        "Charlottenburg-Wilmersdorf",
+        "Falkensee",
+        "Friedrichshain-Kreuzberg",	
+        "Gropiusstadt",	
+        "Köpenick",	
+        "Lichtenberg",	
+        "Marzahn-Hellersdorf",	
+        "Mitte",
+        "Oranienburg",	
+        "Pankow",	
+        "Potsdam",	
+        "Reinickendorf",	
+        "Renrakusan a.D. Prenzlauer Berg",
+        "Schönefeld",	
+        "Schönwalde",
+        "Spandau",	
+        "Strausberg-Fredersdorf",	
+        "Tempelhof",	
+        "Zehlendorf",	
+        "Z-IC Tegel",
+    ];
+
+    locationPlace["en"] = [
+        "Backroom (Bar)",
+        "Backroom (Cafe)",
+        "Cafe",
+        "Pizzeria",
+        "Restaurant"
+    ];
+
+    var cityCheck = (Math.floor(Math.random() * 10));
+    if(cityCheck < 9) {
+        var locationCityNumber = 0;
+    }else{
+        var locationCityNumber = Math.floor(Math.random() * locationCity.length);
+    } 
+    
+    var locationDistrictNumber = Math.floor(Math.random() * locationDistrict[locationCity[locationCityNumber]].length);
+
+    var locationPlaceNumber = Math.floor(Math.random() * locationPlace[appLanguage].length);
+
+    location = [
+        [locationCity[locationCityNumber]],
+        [locationDistrict[locationCity[locationCityNumber]][locationDistrictNumber]],
+        [locationPlace[appLanguage][locationPlaceNumber]]
+    ]
+
+    return location;
 }

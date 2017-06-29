@@ -29,7 +29,7 @@ body {
 }
 
 .row {
-        margin: 10px 0 10px 0;
+    margin: 10px 0 10px 0;
 }
 
 .btn {
@@ -60,4 +60,8 @@ body {
 .nscDiv span{
     float: left;
     padding-right: 2px;
+}
+
+.locationDiv span {
+    float: left;
 }
