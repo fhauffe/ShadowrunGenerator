@@ -515,9 +515,9 @@ function randomName(gender = "") {
     ];
 
     lastName = [
-    "Anderson",
-    "Archer",
-"Armstrong",
+        "Anderson",
+        "Archer",
+        "Armstrong",
         "Baker",
         "Barber",
         "Bennett",
@@ -605,7 +605,6 @@ function randomNSC() {
     var nscAge = [];
     var nscHeight;
     var nscWeight;
-    var nscStature = [];
 
     var nscHairColor = [];
     var nscHairStyle = [];
@@ -672,13 +671,6 @@ function randomNSC() {
         "green",
     ];
 
-    nscRace['en'] = [
-        "Human",
-        "Elf",
-        "Troll",
-        "Ork",
-        "Dwarf"
-    ];
 
     nscEthnie['en'] = [
         "Anglo-American",
@@ -811,30 +803,10 @@ function randomNSC() {
 
     nscName = randomName(nscGender[appLanguage][nscGenderNumber]);
 
-    var nscRaceNumber = Math.floor(Math.random() * nscRace[appLanguage].length);
-
-
-
-    nscHeight = Math.floor(Math.random()*(220-150+1)+150);
-    nscWeight = Math.floor(Math.random()*(200-50+1)+50); 
-    nscAge = Math.floor(Math.random()*(100-18+1)+18);
-
-    if(nscRace[appLanguage][nscRaceNumber] == "Troll") {
-        nscHeight = Math.floor(Math.random()*(350-200+1)+200);
-        nscWeight = Math.floor(Math.random()*(600-180)+180);
-        nscAge = Math.floor(Math.random()*(60-18+1)+18);
-    }
-
-    if(nscRace[appLanguage][nscRaceNumber] == "Dwarf") {
-        nscHeight = Math.floor(Math.random()*(160-120+1)+120);
-        nscWeight = Math.floor(Math.random()*(150-50+1)+50);
-        nscAge = Math.floor(Math.random()*(150-18+1)+18);
-    } 
-
-    nscHeight = nscHeight / 100;
-    nscHeight += " m";
-
-    nscWeight += " kg";
+    nscRace = randomMetaType();
+    nscWeight = randomWeight(nscRace);
+    nscHeight = randomHeight(nscRace);
+    nscAge = randomAge(nscRace);
 
     var nscHairColorNumber = Math.floor(Math.random() * nscHairColor[appLanguage].length);
     var nscHairStyleNumber = Math.floor(Math.random() * nscHairStyle[appLanguage].length);
@@ -906,13 +878,13 @@ function randomNSC() {
     }else{
         var nscAbnormalitiesNumber = Math.floor(Math.random() * nscAbnormalities[appLanguage].length);
     }
-    
+
     var religionCheck = (Math.floor(Math.random() * 10));
-     if(policeRecordCheck < 7) {
+    if(policeRecordCheck < 7) {
         var nscReligionNumber = 0;
-     } else {
+    } else {
         var nscReligionNumber = Math.floor(Math.random() * nscReligion[appLanguage].length);
-     }
+    }
 
     var nscEyeColorNumber = Math.floor(Math.random() * nscEyeColor[appLanguage].length);
     var nscEthnieNumber = Math.floor(Math.random() * nscEthnie[appLanguage].length);
@@ -928,7 +900,7 @@ function randomNSC() {
         [nscName],
         [nscGender[appLanguage][nscGenderNumber]],
         [nscAge],
-        [nscRace[appLanguage][nscRaceNumber]],
+        [nscRace],
         [nscEthnie[appLanguage][nscEthnieNumber]],
         [nscHeight],
         [nscWeight],
@@ -972,7 +944,8 @@ function randomLocation() {
 
     locationCity = [
         "Seattle",
-        "Berlin"
+        "Berlin",
+        "Hongkong"
     ];
 
     locationDistrict["Seattle"] = [
@@ -1014,6 +987,20 @@ function randomLocation() {
         "Z-IC Tegel",
     ];
 
+    locationDistrict["Hongkong"] = [
+        "Downtown Hongkong",
+        "Eastern Hongkong",
+        "Kowloon City",	
+        "Kwai Tsing",	
+        "Kwun Tong",	
+        "Lantau",	
+        "Northern Reaches",	
+        "Sai Kung",	
+        "Southern Coast",	
+        "Tolo-Hafenanlagen",	
+        "Yau Tsim Mong"
+    ];
+
     locationPlace["en"] = [
         "Backroom (Bar)",
         "Backroom (Cafe)",
@@ -1028,7 +1015,7 @@ function randomLocation() {
     }else{
         var locationCityNumber = Math.floor(Math.random() * locationCity.length);
     } 
-    
+
     var locationDistrictNumber = Math.floor(Math.random() * locationDistrict[locationCity[locationCityNumber]].length);
 
     var locationPlaceNumber = Math.floor(Math.random() * locationPlace[appLanguage].length);
@@ -1040,4 +1027,66 @@ function randomLocation() {
     ]
 
     return location;
+}
+
+function randomMetaType(){
+
+    var metaType = [];
+
+    var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
+
+
+    metaType['en'] = [
+        "Human",
+        "Elf",
+        "Troll",
+        "Ork",
+        "Dwarf"
+    ];
+
+    var metaTypeCheck = (Math.floor(Math.random() * 10));
+    if(metaTypeCheck < 6) {
+        var metaTypeNumber = 0;
+    }else{
+        var metaTypeNumber = Math.floor(Math.random() * metaType[appLanguage].length);
+    } 
+
+
+    return metaType[appLanguage][metaTypeNumber];
+}
+
+function randomWeight(metaType){
+
+
+    var weight = Math.floor(Math.random()*(200-50+1)+50); 
+
+    if(metaType == "Troll") {
+        var weight = Math.floor(Math.random()*(600-180)+180);
+    }
+
+    if(metaType == "Dwarf") {   
+        var weight = Math.floor(Math.random()*(150-50+1)+50);
+    }
+
+    return weight + " kg";
+}
+
+function randomHeight(metaType){
+    var height = Math.floor(Math.random()*(220-150+1)+150); 
+
+    if(metaType == "Troll") {
+        height = Math.floor(Math.random()*(350-200+1)+200);
+    }
+
+    if(metaType == "Dwarf") {
+        height = Math.floor(Math.random()*(160-120+1)+120);
+    } 
+
+    return (height/100) + " m";
+}
+
+function randomAge(metaType){
+    var age = nscAge = Math.floor(Math.random()*(100-18+1)+18);
+
+    return age
 }
