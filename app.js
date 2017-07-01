@@ -60,11 +60,12 @@ $(document).ready(function() {
         $(".showContactProfession").html(actualContact[2]);
         $(".showContactGender").html(actualContact[3]);
         $(".showContactName").html(actualContact[4]);
+        $(".showContactMetaType").html(actualContact[5]);
     });
 
     $(".nameButton").click(function() {
         var actualName = randomName();
-        $(".showMaleName").html(actualName);
+        $(".showName").html(actualName);
     });
 
     $(".nscButton").click(function() {
@@ -111,6 +112,7 @@ $(document).ready(function() {
 
 });
 
+
 function randomEvent() {
 
     var events = {};
@@ -148,6 +150,7 @@ function randomEvent() {
 
     return (events[appLanguage][eventNumber]);
 }
+
 
 function randomRun() {
 
@@ -344,6 +347,7 @@ function randomRun() {
     return (Run[appLanguage]);
 }
 
+
 function randomContact() {
 
     var Contact = {};
@@ -352,6 +356,7 @@ function randomContact() {
     var contactProfession = {};
     var contactGender = {};
     var contactName = "";
+    var contactMetaType = randomMetaType();
 
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
 
@@ -442,11 +447,13 @@ function randomContact() {
         [contactLoyality[appLanguage][contactLoyalityNumber]],
         [contactProfession[appLanguage][contactProfessionNumber]],
         [contactGender[appLanguage][contactGenderNumber]],
-        [contactName]
+        [contactName],
+        [contactMetaType]
     ];
 
     return (Contact[appLanguage]);
 }
+
 
 function randomName(gender = "") {
     var firstName = {};
@@ -595,6 +602,7 @@ function randomName(gender = "") {
 
     return (firstName[gender][firstNameNumber] + " " + lastName[lastNameNumber]);
 }
+
 
 function randomNSC() {
 
@@ -932,6 +940,7 @@ function randomNSC() {
     return NSC[appLanguage];
 }
 
+
 function randomLocation() {
 
     var location = [];
@@ -1029,6 +1038,7 @@ function randomLocation() {
     return location;
 }
 
+
 function randomMetaType(){
 
     var metaType = [];
@@ -1055,8 +1065,8 @@ function randomMetaType(){
     return metaType[appLanguage][metaTypeNumber];
 }
 
-function randomWeight(metaType){
 
+function randomWeight(metaType="Human"){
 
     var weight = Math.floor(Math.random()*(200-50+1)+50); 
 
@@ -1071,7 +1081,9 @@ function randomWeight(metaType){
     return weight + " kg";
 }
 
-function randomHeight(metaType){
+
+function randomHeight(metaType="Human"){
+    
     var height = Math.floor(Math.random()*(220-150+1)+150); 
 
     if(metaType == "Troll") {
@@ -1085,7 +1097,8 @@ function randomHeight(metaType){
     return (height/100) + " m";
 }
 
-function randomAge(metaType){
+function randomAge(metaType="Human"){
+    
     var age = nscAge = Math.floor(Math.random()*(100-18+1)+18);
 
     return age

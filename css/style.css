@@ -64,4 +64,15 @@ body {
 
 .locationDiv span {
     float: left;
+    padding-right: 2px;
+}
+
+.contactDiv span {
+    float: left;
+     padding-right: 2px;
+}
+
+.nameDiv span {
+    float: left;
+     padding-right: 2px;
 }
