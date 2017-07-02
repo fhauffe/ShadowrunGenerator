@@ -8,6 +8,7 @@ $(document).ready(function() {
             $(".eventButton").html("Event generieren");
             $(".contactButton").html("Kontakt generieren");
             $(".nameButton").html("Namen generieren");
+            $(".locationButton").html("Ort generieren");
 
             /* Labels German */
 
@@ -42,6 +43,19 @@ $(document).ready(function() {
             $(".nscCyberware").html("Cyberware: ");
             $(".nscAwaken").html("Erwacht: ");
             $(".nscPreviouslyConvicted").html("Vorstrafen: ");
+            
+            $(".contactRating").html("Einfluss: ");
+            $(".contactLoyality").html("Loyalität: ");
+            $(".contactProfession").html("Beruf: ");
+            $(".contactGender").html("Geschlecht: ");
+            $(".contactName").html("Name: ");
+            $(".contactMetaType").html("Metatyp: ");
+            
+            
+            $(".locationCity").html("Stadt: ");
+            $(".locationDistrict").html("Stadtteil: ");
+            $(".locationPlace").html("Ort: ");
+            
 
         } else if(($('input[name=radioLanguage]:checked', '#languageForm').val()) == "en") {
 
@@ -51,6 +65,7 @@ $(document).ready(function() {
             $(".eventButton").html("Generate Event");
             $(".contactButton").html("Generate Contact");
             $(".nameButton").html("Generate Name");
+            $(".locationButton").html("Generate Location");
 
             /* Labels English */
 
@@ -85,7 +100,18 @@ $(document).ready(function() {
             $(".nscCyberware").html("Cyberware: ");
             $(".nscAwaken").html("Awaken: ");
             $(".nscPreviouslyConvicted").html("Previously convicted: ");
+            
+            $(".contactRating").html("Rating: ");
+            $(".contactLoyality").html("Loyality: ");
+            $(".contactProfession").html("Profession: ");
+            $(".contactGender").html("Gender: ");
+            $(".contactName").html("Name: ");
+            $(".contactMetaType").html("Meta type: ");
 
+            $(".locationCity").html("City: ");
+            $(".locationDistrict").html("District: ");
+            $(".locationPlace").html("Place: ");
+            
 
         }
     }));
@@ -99,10 +125,11 @@ $(document).ready(function() {
         $(".showRunType").html(actualRun[0]);
         $(".showRunPayment").html(actualRun[1]);
         $(".showRunEmployer").html(actualRun[2]);
-        $(".showRunTarget").html(actualRun[3]);
-        $(".showRunComplication1").html(actualRun[4]);
-        $(".showRunComplication2").html(actualRun[5]);
-        $(".showRunComplication3").html(actualRun[6]);
+        $(".showRunMeetingPlace").html(actualRun[3]);
+        $(".showRunTarget").html(actualRun[4]);
+        $(".showRunComplication1").html(actualRun[5]);
+        $(".showRunComplication2").html(actualRun[6]);
+        $(".showRunComplication3").html(actualRun[7]);
     });
 
     $(".contactButton").click(function() {
@@ -210,6 +237,7 @@ function randomRun() {
     var runType = {};
     var runPayment;
     var runEmployer = {};
+    var runMeetingPlace = "";
     var runTarget = {};
     var runComplications = {};
 
@@ -378,9 +406,7 @@ function randomRun() {
         runPayment += " days";
     }
 
-
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
-
 
     var runTypeNumber = Math.floor(Math.random() * runType[appLanguage].length);
 
@@ -394,6 +420,9 @@ function randomRun() {
         }
     }
    
+    var runMeetingPlace = randomLocation();
+    
+    
     var runTargetNumber = Math.floor(Math.random() * runTarget[appLanguage].length);
     var runComplicationsNumber1 = Math.floor(Math.random() * runComplications[appLanguage].length);
     var runComplicationsNumber2 = Math.floor(Math.random() * runComplications[appLanguage].length);
@@ -403,12 +432,13 @@ function randomRun() {
         [runType[appLanguage][runTypeNumber]],
         [runPayment],
         [runEmployer[appLanguage][runEmployerNumber]],
+        [runMeetingPlace[2]],
         [runTarget[appLanguage][runTargetNumber]],
         [runComplications[appLanguage][runComplicationsNumber1]],
         [runComplications[appLanguage][runComplicationsNumber2]],
         [runComplications[appLanguage][runComplicationsNumber3]],
     ] 
-
+    alert(Run[appLanguage]);
     return (Run[appLanguage]);
 }
 
@@ -658,8 +688,8 @@ function randomName(gender = "") {
         "Young"
     ];
 
-
-    var genderNumber = Math.floor(Math.random() * gender.length);
+    firstName["weiblich"] = firstName["female"];
+    firstName["männlich"] = firstName["male"];
 
     var firstNameNumber = Math.floor(Math.random() * firstName[gender].length);
     var lastNameNumber = Math.floor(Math.random() * lastName.length);
@@ -871,6 +901,175 @@ function randomNSC() {
         "Right Leg",
         "Left Arm"
     ]; 
+    
+    // German Arrays
+    
+    nscGender['de'] = [
+        "male",
+        "female"
+    ];
+
+    nscHairColor['de'] = [
+        "blond",
+        "black",
+        "brown",
+        "red",
+        "green",
+        "white",
+        "blue",
+    ];
+
+    nscHairStyle['de'] = [
+        "long",
+        "short",
+        "ponytail",
+        "bald head",
+        "mowhawk",
+        "undercut",
+        "Long and Grungy"
+    ];
+
+    nscBeard['de'] = [
+        "none",
+        "short",
+        "full",
+        "snauzer"
+    ]
+
+    nscEyeColor['de'] = [
+        "blue",
+        "brown",
+        "green",
+    ];
+
+
+    nscEthnie['de'] = [
+        "Anglo-American",
+        "African",
+        "European",
+        "Japanese/Koren",
+        "Chinese/Southern Asia",
+        "Pacific Islander",
+        "Hispanic-American",
+        "South American",
+        "Black American",
+        "Central European"
+    ];
+
+    nscEyeColor['de'] = [
+        "blue",
+        "brown",
+        "green",
+    ];
+
+    nscSexualOrientation['de'] = [
+        "straight",
+        "gay",
+        "bi",
+        "none"
+    ];
+
+    nscAccessories['de'] = [
+        "Glasses",
+        "Bracelet (left Hand)",
+        "Chain",
+        "Ring (lift Hand)",
+        "Ring (right Hand)",
+    ];
+
+    nscClothStyle['de'] = [
+        "Biker Leahter",
+        "Blue Jeans",
+        "Fancy Suit", 
+        "Ripped Clothing" ,
+        "Hot Shorts",
+        "High Fashion", 
+        "Military Garb",
+        "Average Clothes", 
+        "80s Retro",
+        "Costume",
+    ];
+
+
+    nscJob['de'] = [
+        "Policemen",
+        "Firefighter",
+        "Busdriver",
+    ];
+
+    nscPersonality['de'] = [
+        "normal",
+        "depressiv",
+        "sadist",
+        "psychopath",
+    ];
+
+    nscAbnormalities['de'] = [
+        "None",
+        "Tattoos",
+        "Kick Ass Attitude Glasses",
+        "Punked Out Glowing Tattoos",
+        "Crazy Colors Spiked Gloves and Belt",
+        "Interesting Piercngs",
+        "Stretched Ear Piercings",
+        "Clean Nail Polish that changes color",
+        "Shaggy High Heels or Platform boots",
+        "Crazy Colored Contacts",
+        "Scarification Art"
+    ];
+
+    nscReligion['de'] = [
+        "Atheist",
+        "Christian",
+        "Islam"
+    ];
+
+    nscHobby['de'] = [
+        "Shooting",
+        "Cinema",
+        "Pool Billiard",
+    ];
+
+    nscPreviouslyConvicted['de'] = [
+        "No",
+        "Smuggling",
+        "Illegal Weapons",
+        "Drugs",
+        "Grand Theft"
+    ]
+
+    nscAddiction["de"] = [
+        "none",
+        "Alcohol",
+        "Drugs",
+        "BTL-Chips",
+        "Gambling"
+    ]
+
+    nscSmoker["de"] = [
+        "No",
+        "Yes"
+    ]
+
+    nscDrinker["de"] = [
+        "No",
+        "Yes"
+    ]
+
+    nscAwaken["de"] = [
+        "No",
+        "Yes"
+    ]
+
+    nscCyberware["de"] = [
+        "none",
+        "Left Arm",
+        "Left Leg",
+        "Right Arm",
+        "Right Leg",
+        "Left Arm"
+    ]; 
+
 
     var nscGenderNumber = Math.floor(Math.random() * nscGender[appLanguage].length);
 
@@ -1115,8 +1314,16 @@ function randomMetaType(){
         "Human",
         "Elf",
         "Troll",
-        "Ork",
+        "Orc",
         "Dwarf"
+    ];
+    
+    metaType['de'] = [
+        "Mensch",
+        "Elf",
+        "Troll",
+        "Ork",
+        "Zwerg"
     ];
 
     var metaTypeCheck = (Math.floor(Math.random() * 10));
