@@ -18,6 +18,22 @@ body {
 
 }
 
+div.appLanguageDiv,
+div.genderDiv {
+    margin-bottom: 10px;
+}
+
+div.appLanguageDiv input,
+div.genderDiv input{
+    margin-right: 5px;
+}
+
+.languageFlag {
+    padding-right: 5px;
+    float: left;
+    margin-top: 5px;
+}
+
 .container {
     min-height: 500px;
     margin-top: 40px;
@@ -69,10 +85,10 @@ body {
 
 .contactDiv span {
     float: left;
-     padding-right: 2px;
+    padding-right: 2px;
 }
 
 .nameDiv span {
     float: left;
-     padding-right: 2px;
+    padding-right: 2px;
 }

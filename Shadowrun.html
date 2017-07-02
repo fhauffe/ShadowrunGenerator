@@ -21,8 +21,12 @@
             </header>
             <div class="appLanguageDiv">
                 <form id="languageForm">
-                    <input type="radio" name="radioLanguage" value="en" checked="checked"/> Englisch
-                    <input type="radio" name="radioLanguage" value="de" /> Deutsch <br />
+                    <div>
+                        <img class="languageFlag" src="images/englishflag.jpg"><input type="radio" name="radioLanguage" value="en" checked="checked"/><span class="languageFlagEnglish">English </span>
+                    </div>
+                    <div>
+                        <img class="languageFlag" src="images/germanflag.jpg"><input type="radio" name="radioLanguage" value="de" /><span class="languageFlagGerman">German </span> <br />
+                    </div>
                 </form>
             </div>
             <div class="nscDiv">
@@ -170,7 +174,7 @@
             <div class="row row-eq-height">
                 <div class="col-lg-6">
                     <div class="contactDiv">
-                         <div>
+                        <div>
                             <span class="contactRating">Rating: </span>
                             <p class="showContact showContactRating">&nbsp;</p>
                         </div>   
@@ -198,10 +202,16 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <form id="genderForm">
-                        <input type="radio" name="radioGender" value="female" checked="checked"/> Female 
-                        <input type="radio" name="radioGender" value="male" /> Male <br />
-                    </form>
+                    <div class="genderDiv">
+                        <form id="genderForm">
+                            <div>
+                                <img src="images/genderFemale.png"><input type="radio" name="radioGender" value="female" checked="checked"/><span class="genderFemale">Female </span>
+                            </div>
+                            <div>
+                                <img src="images/genderMale.png"><input type="radio" name="radioGender" value="male" /><span class="genderMale">Male </span>
+                            </div>
+                        </form>
+                    <div>
                     <div class="nameDiv">
                         <div>
                             <span class="Name">Name: </span>
@@ -211,24 +221,24 @@
                     </div>
                 </div>
             </div>
-                            <div class="row">
-                    <div class="col-lg-6">
-                        <div class="locationDiv">
-                            <div>
-                                <span class="locationCity">City:</span>
-                                <p class="showLocation showLocationCity">&nbsp;</p>
-                            </div>
-                            <div>
-                                <span class="locationDistrict">District:</span>
-                                <p class="showLocation showLocationDistrict">&nbsp;</p>
-                            </div>
-                            <div><span class="locationPlace">Place: </span>
-                                <p class="showLocation showLocationPlace">&nbsp;</p>
-                            </div>       
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="locationDiv">
+                        <div>
+                            <span class="locationCity">City:</span>
+                            <p class="showLocation showLocationCity">&nbsp;</p>
                         </div>
-                         <button class="locationButton btn btn-danger">Generate Location</button>
-                    </div>  
-                </div>
+                        <div>
+                            <span class="locationDistrict">District:</span>
+                            <p class="showLocation showLocationDistrict">&nbsp;</p>
+                        </div>
+                        <div><span class="locationPlace">Place: </span>
+                            <p class="showLocation showLocationPlace">&nbsp;</p>
+                        </div>       
+                    </div>
+                    <button class="locationButton btn btn-danger">Generate Location</button>
+                </div>  
+            </div>
         </div>
     </body>
 </html>

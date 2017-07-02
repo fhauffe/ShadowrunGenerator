@@ -4,6 +4,12 @@ $(document).ready(function() {
 
             /* Buttons German */
 
+            $(".languageFlagEnglish").html("Englisch");
+            $(".languageFlagGerman").html("Deutsch");
+
+            $(".genderFemale").html("Weiblich");
+            $(".genderMale").html("Männlich");
+
             $(".runButton").html("Run generieren");
             $(".eventButton").html("Event generieren");
             $(".contactButton").html("Kontakt generieren");
@@ -17,7 +23,7 @@ $(document).ready(function() {
             $(".runEmployer").html("Auftraggeber: ");
             $(".runTarget").html("Auftragsziel: ");
             $(".runComplications").html("Komplikationen: ");
-            
+
             $(".nscName").html("Name: ");
             $(".nscGender").html("Geschlecht: ");
             $(".nscAge").html("Alter: ");
@@ -43,23 +49,29 @@ $(document).ready(function() {
             $(".nscCyberware").html("Cyberware: ");
             $(".nscAwaken").html("Erwacht: ");
             $(".nscPreviouslyConvicted").html("Vorstrafen: ");
-            
+
             $(".contactRating").html("Einfluss: ");
             $(".contactLoyality").html("Loyalität: ");
             $(".contactProfession").html("Beruf: ");
             $(".contactGender").html("Geschlecht: ");
             $(".contactName").html("Name: ");
             $(".contactMetaType").html("Metatyp: ");
-            
-            
+
+
             $(".locationCity").html("Stadt: ");
             $(".locationDistrict").html("Stadtteil: ");
             $(".locationPlace").html("Ort: ");
-            
+
 
         } else if(($('input[name=radioLanguage]:checked', '#languageForm').val()) == "en") {
 
             /* Buttons English */
+
+            $(".languageFlagEnglish").html("English");
+            $(".languageFlagGerman").html("German");
+
+            $(".genderFemale").html("Female");
+            $(".genderMale").html("Male");
 
             $(".runButton").html("Generate Run");
             $(".eventButton").html("Generate Event");
@@ -74,7 +86,7 @@ $(document).ready(function() {
             $(".runEmployer").html("Employer: ");
             $(".runTarget").html("Target: ");
             $(".runComplications").html("Complications: ");
-            
+
             $(".nscName").html("Name: ");
             $(".nscGender").html("Gender: ");
             $(".nscAge").html("Age: ");
@@ -100,7 +112,7 @@ $(document).ready(function() {
             $(".nscCyberware").html("Cyberware: ");
             $(".nscAwaken").html("Awaken: ");
             $(".nscPreviouslyConvicted").html("Previously convicted: ");
-            
+
             $(".contactRating").html("Rating: ");
             $(".contactLoyality").html("Loyality: ");
             $(".contactProfession").html("Profession: ");
@@ -111,7 +123,7 @@ $(document).ready(function() {
             $(".locationCity").html("City: ");
             $(".locationDistrict").html("District: ");
             $(".locationPlace").html("Place: ");
-            
+
 
         }
     }));
@@ -413,16 +425,16 @@ function randomRun() {
     var runEmployerCheck = Math.floor(Math.random() * 10);
     if(runEmployerCheck < 5) {
         var runEmployerNumber = 0
-    } else {
-        var runEmployerNumber = Math.floor(Math.random() * runEmployer[appLanguage].length);
-        if(runEmployerNumber == 0) {
-            runEmployerNumber = 1
+        } else {
+            var runEmployerNumber = Math.floor(Math.random() * runEmployer[appLanguage].length);
+            if(runEmployerNumber == 0) {
+                runEmployerNumber = 1
+            }
         }
-    }
-   
+
     var runMeetingPlace = randomLocation();
-    
-    
+
+
     var runTargetNumber = Math.floor(Math.random() * runTarget[appLanguage].length);
     var runComplicationsNumber1 = Math.floor(Math.random() * runComplications[appLanguage].length);
     var runComplicationsNumber2 = Math.floor(Math.random() * runComplications[appLanguage].length);
@@ -438,7 +450,6 @@ function randomRun() {
         [runComplications[appLanguage][runComplicationsNumber2]],
         [runComplications[appLanguage][runComplicationsNumber3]],
     ] 
-    alert(Run[appLanguage]);
     return (Run[appLanguage]);
 }
 
@@ -901,9 +912,9 @@ function randomNSC() {
         "Right Leg",
         "Left Arm"
     ]; 
-    
+
     // German Arrays
-    
+
     nscGender['de'] = [
         "male",
         "female"
@@ -1317,7 +1328,7 @@ function randomMetaType(){
         "Orc",
         "Dwarf"
     ];
-    
+
     metaType['de'] = [
         "Mensch",
         "Elf",
@@ -1355,7 +1366,7 @@ function randomWeight(metaType="Human"){
 
 
 function randomHeight(metaType="Human"){
-    
+
     var height = Math.floor(Math.random()*(220-150+1)+150); 
 
     if(metaType == "Troll") {
@@ -1370,7 +1381,7 @@ function randomHeight(metaType="Human"){
 }
 
 function randomAge(metaType="Human"){
-    
+
     var age = nscAge = Math.floor(Math.random()*(100-18+1)+18);
 
     return age
