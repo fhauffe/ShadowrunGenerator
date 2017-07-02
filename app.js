@@ -16,6 +16,32 @@ $(document).ready(function() {
             $(".runEmployer").html("Auftraggeber: ");
             $(".runTarget").html("Auftragsziel: ");
             $(".runComplications").html("Komplikationen: ");
+            
+            $(".nscName").html("Name: ");
+            $(".nscGender").html("Geschlecht: ");
+            $(".nscAge").html("Alter: ");
+            $(".nscRace").html("Metatyp: ");
+            $(".nscEthnie").html("Ethnische Zugehörigkeit: ");
+            $(".nscHeight").html("Größe: ");
+            $(".nscWeight").html("Gewicht: ");
+            $(".nscHairColor").html("Haarfarbe: ");
+            $(".nscHairStyle").html("Frisur: ");
+            $(".nscBeard").html("Bart: ");
+            $(".nscEyeColor").html("Augenfarbe: ");
+            $(".nscAccessories").html("Assessoirs: ");
+            $(".nscAbnormalities").html("Besonderheiten: ");
+            $(".nscClothStyle").html("Kleidungsstil: ");
+            $(".nscJob").html("Beruf: ");
+            $(".nscHobby").html("Hobby: ");
+            $(".nscReligion").html("Religion: ");
+            $(".nscSexuality").html("Sexuelle Orientierung: ");
+            $(".nscPersonality").html("Persönlichkeit: ");
+            $(".nscSmoker").html("Raucher: ");
+            $(".nscDrinker").html("Trinker: ");
+            $(".nscAddiction").html("Sucht: ");
+            $(".nscCyberware").html("Cyberware: ");
+            $(".nscAwaken").html("Erwacht: ");
+            $(".nscPreviouslyConvicted").html("Vorstrafen: ");
 
         } else if(($('input[name=radioLanguage]:checked', '#languageForm').val()) == "en") {
 
@@ -33,6 +59,32 @@ $(document).ready(function() {
             $(".runEmployer").html("Employer: ");
             $(".runTarget").html("Target: ");
             $(".runComplications").html("Complications: ");
+            
+            $(".nscName").html("Name: ");
+            $(".nscGender").html("Gender: ");
+            $(".nscAge").html("Age: ");
+            $(".nscRace").html("Metatyp: ");
+            $(".nscEthnie").html("Ethnic Origins: ");
+            $(".nscHeight").html("Height: ");
+            $(".nscWeight").html("Weight: ");
+            $(".nscHairColor").html("Hair color: ");
+            $(".nscHairStyle").html("Hair style: ");
+            $(".nscBeard").html("Beard: ");
+            $(".nscEyeColor").html("Eye color: ");
+            $(".nscAccessories").html("Assessoirs: ");
+            $(".nscAbnormalities").html("Abnormalities: ");
+            $(".nscClothStyle").html("Cloth style: ");
+            $(".nscJob").html("Job: ");
+            $(".nscHobby").html("Hobby: ");
+            $(".nscReligion").html("Religion: ");
+            $(".nscSexuality").html("Sexuell Oriantation ");
+            $(".nscPersonality").html("Personality: ");
+            $(".nscSmoker").html("Smoker: ");
+            $(".nscDrinker").html("Drinker: ");
+            $(".nscAddiction").html("Addiction: ");
+            $(".nscCyberware").html("Cyberware: ");
+            $(".nscAwaken").html("Awaken: ");
+            $(".nscPreviouslyConvicted").html("Previously convicted: ");
 
 
         }
@@ -208,6 +260,7 @@ function randomRun() {
     ]
 
     runEmployer["en"] = [
+        "Mr. Johnson",
         "Government",
         "Government (Utility/Service)",
         "Government (Gvmt Office)",
@@ -251,6 +304,7 @@ function randomRun() {
     ];
 
     runEmployer["de"] = [
+        "Herr Schmidt",
         "Regierung",
         "Shadowrunner",
         "Private Person"
@@ -327,8 +381,19 @@ function randomRun() {
 
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
 
+
     var runTypeNumber = Math.floor(Math.random() * runType[appLanguage].length);
-    var runEmployerNumber = Math.floor(Math.random() * runEmployer[appLanguage].length);
+
+    var runEmployerCheck = Math.floor(Math.random() * 10);
+    if(runEmployerCheck < 5) {
+        var runEmployerNumber = 0
+    } else {
+        var runEmployerNumber = Math.floor(Math.random() * runEmployer[appLanguage].length);
+        if(runEmployerNumber == 0) {
+            runEmployerNumber = 1
+        }
+    }
+   
     var runTargetNumber = Math.floor(Math.random() * runTarget[appLanguage].length);
     var runComplicationsNumber1 = Math.floor(Math.random() * runComplications[appLanguage].length);
     var runComplicationsNumber2 = Math.floor(Math.random() * runComplications[appLanguage].length);
