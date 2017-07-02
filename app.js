@@ -252,6 +252,7 @@ function randomRun() {
     var runMeetingPlace = "";
     var runTarget = {};
     var runComplications = {};
+    var runPaymentType = {};
 
     runType["en"] = [
         "Assasination",
@@ -395,6 +396,17 @@ function randomRun() {
         "Bandenkrieg"
     ];
 
+    runPaymentType['en'] = [
+        "Gear (Weapons)",
+        "Gear (Bodyarmor)",
+        "Cyberware",
+        "Bioware",
+        "Drugs",
+        "Favor",
+        "Informations",
+        "Vehicles",
+    ];
+
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
 
     var runTypeNumber = Math.floor(Math.random() * runType[appLanguage].length);
@@ -418,7 +430,6 @@ function randomRun() {
 
     if(runType[appLanguage][runTypeNumber] == "Assasination" || runType[appLanguage][runTypeNumber] == "Blackmail") {
         if(runTarget[appLanguage][runTargetNumber] == runEmployer[appLanguage][runEmployerNumber]) {
-            alert(runTarget[appLanguage][runTargetNumber]);
             runTarget[appLanguage][runTargetNumber] = randomName(); 
         }else{            
             runTarget[appLanguage][runTargetNumber] += " ("; 
@@ -461,12 +472,21 @@ function randomRun() {
             runPayment += days;
             runPayment += " days";
         }
+
     }else{
-        runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
-        if(runPayment == 0) {
-            runPayment = "5000";
+
+        runPaymentTypeCheck = Math.floor(Math.random() * 10);
+        if(runPaymentTypeCheck < 7) {
+
+            runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
+            if(runPayment == 0) {
+                runPayment = "5000";
+            }
+            runPayment += " &#165;";
+        }else{
+            var runPaymentTypeNumber = Math.floor(Math.random() * runPaymentType[appLanguage].length);
+            runPayment = runPaymentType[appLanguage][runPaymentTypeNumber];
         }
-        runPayment += " &#165;";
     }
 
 
@@ -550,7 +570,18 @@ function randomContact() {
         "Ancients member",
         "Drug dealer",
         "Talismonger",
-        "Street doc"
+        "Street doc",
+        "Mechanic",
+        "'Used' Vehicle Salesman",
+        "Programmer",
+        "Electric Scrap Merchant",
+        "Deckmeister",
+        "Data Dealer",
+        "Security Provider",
+        "Tailor/Clothing Retailer",
+        "High Society Gossips",
+        "Cyberware Mechanic",
+        "Bio-Engineer"
     ];
 
     contactProfession["de"] = [
@@ -922,11 +953,20 @@ function randomNSC() {
 
     nscCyberware["en"] = [
         "none",
-        "Left Arm",
-        "Left Leg",
-        "Right Arm",
-        "Right Leg",
-        "Left Arm"
+        "Head (Cyberware)",
+        "Chest (Cyberware)",
+        "Left Arm (Cyberware)",
+        "Left Leg (Cyberware)",
+        "Right Arm (Cyberware)",
+        "Right Leg (Cyberware)",
+        "Left Arm (Cyberware)",  
+        "Head (Bioware)",
+        "Chest (Bioware)",
+        "Left Arm (Bioware)",
+        "Left Leg (Bioware)",
+        "Right Arm (Bioware)",
+        "Right Leg (Bioware)",
+        "Left Arm (Bioware)", 
     ]; 
 
     // German Arrays
@@ -1087,9 +1127,9 @@ function randomNSC() {
     var nscGenderNumber = Math.floor(Math.random() * nscGender[appLanguage].length);
 
     nscName = randomName(nscGender[appLanguage][nscGenderNumber]);
-    
+
     nscRace = randomMetaType();
-    
+
     nscWeight = randomWeight(nscRace);
     nscHeight = randomHeight(nscRace);
     nscAge = randomAge(nscRace);
@@ -1103,7 +1143,7 @@ function randomNSC() {
     } else {
         nscBeardNumber = 0;
     }
-    
+
     if(nscRace[appLanguage] == "Dryad") {
         nscGender[appLanguage][1];
     }
@@ -1372,14 +1412,14 @@ function randomMetaType(){
             "Minotaur"
         ]
     };
-    
-    
+
+
     metaType['de'] = [
-            "Mensch",
-            "Elf",
-            "Troll",
-            "Ork",
-            "Zwerg"
+        "Mensch",
+        "Elf",
+        "Troll",
+        "Ork",
+        "Zwerg"
     ];
 
     var metaTypeCheck = (Math.floor(Math.random() * 10));
@@ -1398,12 +1438,12 @@ function randomMetaType(){
         var number = (metaSubTypes[appLanguage][race].length);
 
         var metaSubTypeNumber = Math.floor(Math.random() * number);
-        
+
         var metaType = metaSubTypes[appLanguage][metaType[appLanguage][metaTypeNumber]][metaSubTypeNumber];
         return metaType;  
     }
 
-   
+
 }
 
 
@@ -1412,61 +1452,61 @@ function randomWeight(metaType="Human"){
     var weight = Math.floor(Math.random()*(200-50+1)+50); 
 
     //Troll Subtype Weight
-    
+
     if(metaType == "Troll") {
-       weight = Math.floor(Math.random()*(600-180)+180);
+        weight = Math.floor(Math.random()*(600-180)+180);
     }
-        
+
     if(metaType == "Cyclop") {
-         weight = Math.floor(Math.random()*(700-280)+700);
+        weight = Math.floor(Math.random()*(700-280)+700);
     }
-    
+
     if(metaType == "Giant") {
-         weight = Math.floor(Math.random()*(700-330)+700);
+        weight = Math.floor(Math.random()*(700-330)+700);
     }
-    
+
     //Dwarf Subtype Weight
 
     if(metaType == "Dwarf") {   
         weight = Math.floor(Math.random()*(150-50+1)+50);
     }
-    
+
     if(metaType == "Gnome") {
         weight = Math.floor(Math.random()*(50-20+1)+50);
     }
-    
+
     if(metaType == "Koborokuru") {
         weight = Math.floor(Math.random()*(50-30+1)+50);
     }
-    
+
     if(metaType == "Menehune") {
         weight = Math.floor(Math.random()*(70-50+1)+70);
     }
-    
+
     //Elvish Subtype Weight
-    
+
     if(metaType == "Dryad") {
         weight = Math.floor(Math.random()*(40-25+1)+40);
     }
-    
+
     if(metaType == "Wakyambi") {
         weight = Math.floor(Math.random()*(650-220)+650);
     }
-    
+
     //Ork Subtype Weight
-    
+
     if(metaType == "Hobgoblin") {
-         weight = Math.floor(Math.random()*(130-80+1)+130);
+        weight = Math.floor(Math.random()*(130-80+1)+130);
     }
-    
+
     if(metaType == "Ogre") {
-         weight = Math.floor(Math.random()*(130-90+1)+130);
+        weight = Math.floor(Math.random()*(130-90+1)+130);
     }
-    
+
     if(metaType == "Oni") {
-         weight = Math.floor(Math.random()*(150-115+1)+150);
+        weight = Math.floor(Math.random()*(150-115+1)+150);
     }
-   
+
 
     return weight + " kg";
 }
@@ -1479,48 +1519,48 @@ function randomHeight(metaType="Human"){
     if(metaType == "Troll") {
         height = Math.floor(Math.random()*(350-200+1)+200);
     }
-    
+
     if(metaType == "Giant") {
-         weight = Math.floor(Math.random()*(400-250)+400);
+        weight = Math.floor(Math.random()*(400-250)+400);
     }
-    
-    
+
+
     //Dwarf Subtype Height
 
     if(metaType == "Dwarf") {
         height = Math.floor(Math.random()*(160-120+1)+120);
     }
-    
+
     if(metaType == "Gnome") {
         height = Math.floor(Math.random()*(95-65+1)+95);
     }
-    
+
     if(metaType == "Koborokuru"|| metaType == "Menehune") {
         height = Math.floor(Math.random()*(130-90+1)+130);
     }
-    
+
     //Elvish Subtype Height
-    
+
     if(metaType == "Dryad") {
         height = Math.floor(Math.random()*(120-85+1)+120);
     }
-    
+
     if(metaType == "Wakyambi") {
         height = Math.floor(Math.random()*(350-200+1)+200);
     }
-    
+
     //Ork Subtype Height
-    
+
     if(metaType == "Hobgoblin") {
-         height = Math.floor(Math.random()*(200-160+1)+200);
+        height = Math.floor(Math.random()*(200-160+1)+200);
     }
-    
+
     if(metaType == "Ogre") {
-         height = Math.floor(Math.random()*(190-160+1)+190);
+        height = Math.floor(Math.random()*(190-160+1)+190);
     }
-    
+
     if(metaType == "Oni") {
-         height = Math.floor(Math.random()*(220-180+1)+220);
+        height = Math.floor(Math.random()*(220-180+1)+220);
     }
 
     return (height/100) + " m";
@@ -1536,9 +1576,9 @@ function randomAge(metaType="Human"){
 function randomEthnicOrigin(metaType="Human"){
 
     var ethnie = [];
-    
+
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
-    
+
     ethnie['en'] = [
         "Anglo-American",
         "African",
@@ -1552,8 +1592,8 @@ function randomEthnicOrigin(metaType="Human"){
         "Central European",
         "Middle East"
     ];
-    
-   ethnie['de'] = [
+
+    ethnie['de'] = [
         "Anglo-American",
         "African",
         "European",
@@ -1566,86 +1606,86 @@ function randomEthnicOrigin(metaType="Human"){
         "Central European",
         "Middle East"
     ];
-    
+
     var ethnieNumber = Math.floor(Math.random() * ethnie[appLanguage].length)
-  
+
     //Dwarf Subtype Origins
-    
+
     if(metaType == "Gnome") {
         ethnie[appLanguage][ethnieNumber] = "European";
     }
-    
+
     if(metaType == "Harumen") {
         ethnie[appLanguage][ethnieNumber] = "Chinese/Southern Asia";
     }    
-    
+
     if(metaType == "Koborokuru") {
         ethnie[appLanguage][ethnieNumber] = "Japanese/Koren";
     }    
-    
+
     if(metaType == "Menehune") {
         ethnie[appLanguage][ethnieNumber] = "Pacific Islander";
     }   
-    
+
     if(metaType == "Querx") {
         ethnie[appLanguage][ethnieNumber] = "Allied German States";
     }
-    
+
     //Elve Subtype Origins
-    
+
     if(metaType == "Dalakiton") {
         ethnie[appLanguage][ethnieNumber] = "Chinese/Southern Asia";
     }
-    
+
     if(metaType == "Wakyambi") {
         ethnie[appLanguage][ethnieNumber] = "African";
     }    
-    
+
     if(metaType == "Xapiri Thëpë") {
         ethnie[appLanguage][ethnieNumber] = "South American";
     }    
-    
+
     //Human Subtype Origins
-    
+
     if(metaType == "Nartaki") {
         ethnie[appLanguage][ethnieNumber] = "Chinese/Southern Asia";
     } 
-    
+
     //Ork Subtype Origins
-    
+
     if(metaType == "Hobgoblin") {
         ethnie[appLanguage][ethnieNumber] = "Middle East";
     } 
-    
-        if(metaType == "Ogre") {
+
+    if(metaType == "Ogre") {
         ethnie[appLanguage][ethnieNumber] = "European";
     } 
-    
-        if(metaType == "Oni") {
+
+    if(metaType == "Oni") {
         ethnie[appLanguage][ethnieNumber] = "Japanese/Koren";
     } 
-    
-        if(metaType == "Satyr") {
+
+    if(metaType == "Satyr") {
         ethnie[appLanguage][ethnieNumber] = "European";
     } 
-    
+
     //Troll Subtype Origins
-    
+
     if(metaType == "Cyclop") {
         ethnie[appLanguage][ethnieNumber] = "European";
     } 
-    
-        if(metaType == "Fomori") {
+
+    if(metaType == "Fomori") {
         ethnie[appLanguage][ethnieNumber] = "Irish";
     } 
-    
-        if(metaType == "Giant") {
+
+    if(metaType == "Giant") {
         ethnie[appLanguage][ethnieNumber] = "North European";
     } 
-    
-        if(metaType == "Minotaur") {
+
+    if(metaType == "Minotaur") {
         ethnie[appLanguage][ethnieNumber] = "European";
     } 
-    
+
     return ethnie[appLanguage][ethnieNumber];
 }
