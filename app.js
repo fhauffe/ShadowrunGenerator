@@ -335,7 +335,6 @@ function randomRun() {
         "Other (Contact/Friend of a Friend)",
         "Other (Mysterious Stranger)",
         "Other (Something Really Weird)",
-        "Other (Dragon/Critters)",
         "Other (Enemy Interference)",
         "Other (Contact/Friend of a Friend)",
         "Location (Syndicate Turf)",
@@ -396,28 +395,6 @@ function randomRun() {
         "Bandenkrieg"
     ];
 
-    var paymentCheck = (Math.floor(Math.random() * 10));
-    if(paymentCheck < 8){
-        runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
-        if(runPayment == 0) {
-            runPayment = "5000";
-        }
-        runPayment += " &#165;";
-    }else{
-        runPayment = Math.floor(Math.random() * 10) * 100 * 4;
-        if(runPayment == 0) {
-            runPayment = 750;
-        }
-        days = Math.floor(Math.random() * 14)
-
-        if(days == 0){
-            days = 5;
-        }
-        runPayment += "&#165; per Day for ";
-        runPayment += days;
-        runPayment += " days";
-    }
-
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
 
     var runTypeNumber = Math.floor(Math.random() * runType[appLanguage].length);
@@ -433,12 +410,67 @@ function randomRun() {
         }
 
     var runMeetingPlace = randomLocation();
-
-
+  
     var runTargetNumber = Math.floor(Math.random() * runTarget[appLanguage].length);
     var runComplicationsNumber1 = Math.floor(Math.random() * runComplications[appLanguage].length);
     var runComplicationsNumber2 = Math.floor(Math.random() * runComplications[appLanguage].length);
     var runComplicationsNumber3 = Math.floor(Math.random() * runComplications[appLanguage].length);
+   
+    runTypeNumber = 2;
+    
+    if(runType[appLanguage][runTypeNumber] == "Assasination" || runType[appLanguage][runTypeNumber] == "Blackmail") {
+        if(runTarget[appLanguage][runTargetNumber] == runEmployer[appLanguage][runEmployerNumber]) {
+            alert(runTarget[appLanguage][runTargetNumber]);
+            runTarget[appLanguage][runTargetNumber] = randomName(); 
+        }else{            
+            runTarget[appLanguage][runTargetNumber] += " ("; 
+            runTarget[appLanguage][runTargetNumber] += randomName(); 
+            runTarget[appLanguage][runTargetNumber] += ")"; 
+        }
+
+        
+    }
+    
+    if(runType[appLanguage][runTypeNumber] == "Bodyguard") {
+        if(runEmployer[appLanguage][runEmployerNumber] != "Mr. Johnson") {
+            runTarget[appLanguage][runTargetNumber] = runEmployer[appLanguage][runEmployerNumber];
+        }
+        
+        var name = randomName();
+        
+        runTarget[appLanguage][runTargetNumber] = name + " (" + runTarget[appLanguage][runTargetNumber] + ")";
+    }
+    
+    if(runType[appLanguage][runTypeNumber] == "Bodyguard" || runType[appLanguage][runTypeNumber] == "Bodyguard" || runType[appLanguage][runTypeNumber] == "Investigation")  {
+        var paymentCheck = (Math.floor(Math.random() * 10));
+        if(paymentCheck < 8){
+        runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
+        if(runPayment == 0) {
+            runPayment = "5000";
+        }
+        runPayment += " &#165;";
+    }else{
+        runPayment = Math.floor(Math.random() * 10) * 100 * Math.floor(Math.random() * 20);
+        if(runPayment == 0) {
+            runPayment = 1000;
+        }
+        days = Math.floor(Math.random() * 14)
+
+        if(days == 0){
+            days = 5;
+        }
+        runPayment += " &#165; per Day for ";
+        runPayment += days;
+        runPayment += " days";
+    }
+    }else{
+        runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
+        if(runPayment == 0) {
+            runPayment = "5000";
+        }
+        runPayment += " &#165;";
+    }
+    
 
     Run[appLanguage] = [
         [runType[appLanguage][runTypeNumber]],
