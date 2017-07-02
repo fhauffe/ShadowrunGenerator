@@ -410,14 +410,12 @@ function randomRun() {
         }
 
     var runMeetingPlace = randomLocation();
-  
+
     var runTargetNumber = Math.floor(Math.random() * runTarget[appLanguage].length);
     var runComplicationsNumber1 = Math.floor(Math.random() * runComplications[appLanguage].length);
     var runComplicationsNumber2 = Math.floor(Math.random() * runComplications[appLanguage].length);
     var runComplicationsNumber3 = Math.floor(Math.random() * runComplications[appLanguage].length);
-   
-    runTypeNumber = 2;
-    
+
     if(runType[appLanguage][runTypeNumber] == "Assasination" || runType[appLanguage][runTypeNumber] == "Blackmail") {
         if(runTarget[appLanguage][runTargetNumber] == runEmployer[appLanguage][runEmployerNumber]) {
             alert(runTarget[appLanguage][runTargetNumber]);
@@ -428,41 +426,41 @@ function randomRun() {
             runTarget[appLanguage][runTargetNumber] += ")"; 
         }
 
-        
+
     }
-    
+
     if(runType[appLanguage][runTypeNumber] == "Bodyguard") {
         if(runEmployer[appLanguage][runEmployerNumber] != "Mr. Johnson") {
             runTarget[appLanguage][runTargetNumber] = runEmployer[appLanguage][runEmployerNumber];
         }
-        
+
         var name = randomName();
-        
+
         runTarget[appLanguage][runTargetNumber] = name + " (" + runTarget[appLanguage][runTargetNumber] + ")";
     }
-    
+
     if(runType[appLanguage][runTypeNumber] == "Bodyguard" || runType[appLanguage][runTypeNumber] == "Bodyguard" || runType[appLanguage][runTypeNumber] == "Investigation")  {
         var paymentCheck = (Math.floor(Math.random() * 10));
         if(paymentCheck < 8){
-        runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
-        if(runPayment == 0) {
-            runPayment = "5000";
-        }
-        runPayment += " &#165;";
-    }else{
-        runPayment = Math.floor(Math.random() * 10) * 100 * Math.floor(Math.random() * 20);
-        if(runPayment == 0) {
-            runPayment = 1000;
-        }
-        days = Math.floor(Math.random() * 14)
+            runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
+            if(runPayment == 0) {
+                runPayment = "5000";
+            }
+            runPayment += " &#165;";
+        }else{
+            runPayment = Math.floor(Math.random() * 10) * 100 * Math.floor(Math.random() * 20);
+            if(runPayment == 0) {
+                runPayment = 1000;
+            }
+            days = Math.floor(Math.random() * 14)
 
-        if(days == 0){
-            days = 5;
+            if(days == 0){
+                days = 5;
+            }
+            runPayment += " &#165; per Day for ";
+            runPayment += days;
+            runPayment += " days";
         }
-        runPayment += " &#165; per Day for ";
-        runPayment += days;
-        runPayment += " days";
-    }
     }else{
         runPayment = Math.floor(Math.random() * 10) * 1000 * Math.floor(Math.random() * 10);
         if(runPayment == 0) {
@@ -470,7 +468,7 @@ function randomRun() {
         }
         runPayment += " &#165;";
     }
-    
+
 
     Run[appLanguage] = [
         [runType[appLanguage][runTypeNumber]],
@@ -817,20 +815,6 @@ function randomNSC() {
         "green",
     ];
 
-
-    nscEthnie['en'] = [
-        "Anglo-American",
-        "African",
-        "European",
-        "Japanese/Koren",
-        "Chinese/Southern Asia",
-        "Pacific Islander",
-        "Hispanic-American",
-        "South American",
-        "Black American",
-        "Central European"
-    ];
-
     nscEyeColor['en'] = [
         "blue",
         "brown",
@@ -985,20 +969,6 @@ function randomNSC() {
         "green",
     ];
 
-
-    nscEthnie['de'] = [
-        "Anglo-American",
-        "African",
-        "European",
-        "Japanese/Koren",
-        "Chinese/Southern Asia",
-        "Pacific Islander",
-        "Hispanic-American",
-        "South American",
-        "Black American",
-        "Central European"
-    ];
-
     nscEyeColor['de'] = [
         "blue",
         "brown",
@@ -1117,11 +1087,13 @@ function randomNSC() {
     var nscGenderNumber = Math.floor(Math.random() * nscGender[appLanguage].length);
 
     nscName = randomName(nscGender[appLanguage][nscGenderNumber]);
-
+    
     nscRace = randomMetaType();
+    
     nscWeight = randomWeight(nscRace);
     nscHeight = randomHeight(nscRace);
     nscAge = randomAge(nscRace);
+    nscEthnie = randomEthnicOrigin(nscRace);
 
     var nscHairColorNumber = Math.floor(Math.random() * nscHairColor[appLanguage].length);
     var nscHairStyleNumber = Math.floor(Math.random() * nscHairStyle[appLanguage].length);
@@ -1130,6 +1102,10 @@ function randomNSC() {
         var nscBeardNumber = Math.floor(Math.random() * nscBeard[appLanguage].length);
     } else {
         nscBeardNumber = 0;
+    }
+    
+    if(nscRace[appLanguage] == "Dryad") {
+        nscGender[appLanguage][1];
     }
 
     var sexualityCheck = (Math.floor(Math.random() * 10));
@@ -1202,7 +1178,6 @@ function randomNSC() {
     }
 
     var nscEyeColorNumber = Math.floor(Math.random() * nscEyeColor[appLanguage].length);
-    var nscEthnieNumber = Math.floor(Math.random() * nscEthnie[appLanguage].length);
 
     var nscAccessoriesNumber = Math.floor(Math.random() * nscAccessories[appLanguage].length);
     var nscClothStyleNumber = Math.floor(Math.random() * nscClothStyle[appLanguage].length);
@@ -1216,7 +1191,7 @@ function randomNSC() {
         [nscGender[appLanguage][nscGenderNumber]],
         [nscAge],
         [nscRace],
-        [nscEthnie[appLanguage][nscEthnieNumber]],
+        [nscEthnie],
         [nscHeight],
         [nscWeight],
         [nscHairColor[appLanguage][nscHairColorNumber]],
@@ -1313,7 +1288,7 @@ function randomLocation() {
         "Northern Reaches",	
         "Sai Kung",	
         "Southern Coast",	
-        "Tolo-Hafenanlagen",	
+        "Tolo-Docks",	
         "Yau Tsim Mong"
     ];
 
@@ -1349,24 +1324,62 @@ function randomLocation() {
 function randomMetaType(){
 
     var metaType = [];
+    var metaSubTypes = [];
 
     var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
 
 
     metaType['en'] = [
         "Human",
-        "Elf",
+        "Elv",
         "Troll",
         "Orc",
         "Dwarf"
     ];
 
+    metaSubTypes['en'] = {
+        Dwarf: [
+            "Gnome",
+            "Harumen",
+            "Koborokuru",
+            "Menehune",
+            "Querx"
+        ],
+
+        Elv: [
+            "Dalakiton",
+            "Dryad",
+            "Night One",
+            "Wakyambi",
+            "Xapiri Thëpë"
+        ],
+
+        Human: [
+            "Nartaki"
+        ],
+
+        Ork: [
+            "Hobgoblin",
+            "Ogre",
+            "Oni",
+            "Satyr"
+        ],
+
+        Troll: [
+            "Cyclops",
+            "Fomori",
+            "Giant",
+            "Minotaur"
+        ]
+    };
+    
+    
     metaType['de'] = [
-        "Mensch",
-        "Elf",
-        "Troll",
-        "Ork",
-        "Zwerg"
+            "Mensch",
+            "Elf",
+            "Troll",
+            "Ork",
+            "Zwerg"
     ];
 
     var metaTypeCheck = (Math.floor(Math.random() * 10));
@@ -1376,8 +1389,21 @@ function randomMetaType(){
         var metaTypeNumber = Math.floor(Math.random() * metaType[appLanguage].length);
     } 
 
+    var metaSubTypeCheck = (Math.floor(Math.random() * 100));
+    if(metaSubTypeCheck < 94) {
+        return metaType[appLanguage][metaTypeNumber];
+    }else{
 
-    return metaType[appLanguage][metaTypeNumber];
+        race = (metaType[appLanguage][metaTypeNumber]);
+        var number = (metaSubTypes[appLanguage][race].length);
+
+        var metaSubTypeNumber = Math.floor(Math.random() * number);
+        
+        var metaType = metaSubTypes[appLanguage][metaType[appLanguage][metaTypeNumber]][metaSubTypeNumber];
+        return metaType;  
+    }
+
+   
 }
 
 
@@ -1385,13 +1411,62 @@ function randomWeight(metaType="Human"){
 
     var weight = Math.floor(Math.random()*(200-50+1)+50); 
 
+    //Troll Subtype Weight
+    
     if(metaType == "Troll") {
-        var weight = Math.floor(Math.random()*(600-180)+180);
+       weight = Math.floor(Math.random()*(600-180)+180);
     }
+        
+    if(metaType == "Cyclop") {
+         weight = Math.floor(Math.random()*(700-280)+700);
+    }
+    
+    if(metaType == "Giant") {
+         weight = Math.floor(Math.random()*(700-330)+700);
+    }
+    
+    //Dwarf Subtype Weight
 
     if(metaType == "Dwarf") {   
-        var weight = Math.floor(Math.random()*(150-50+1)+50);
+        weight = Math.floor(Math.random()*(150-50+1)+50);
     }
+    
+    if(metaType == "Gnome") {
+        weight = Math.floor(Math.random()*(50-20+1)+50);
+    }
+    
+    if(metaType == "Koborokuru") {
+        weight = Math.floor(Math.random()*(50-30+1)+50);
+    }
+    
+    if(metaType == "Menehune") {
+        weight = Math.floor(Math.random()*(70-50+1)+70);
+    }
+    
+    //Elvish Subtype Weight
+    
+    if(metaType == "Dryad") {
+        weight = Math.floor(Math.random()*(40-25+1)+40);
+    }
+    
+    if(metaType == "Wakyambi") {
+        weight = Math.floor(Math.random()*(650-220)+650);
+    }
+    
+    //Ork Subtype Weight
+    
+    if(metaType == "Hobgoblin") {
+         weight = Math.floor(Math.random()*(130-80+1)+130);
+    }
+    
+    if(metaType == "Ogre") {
+         weight = Math.floor(Math.random()*(130-90+1)+130);
+    }
+    
+    if(metaType == "Oni") {
+         weight = Math.floor(Math.random()*(150-115+1)+150);
+    }
+   
 
     return weight + " kg";
 }
@@ -1404,10 +1479,49 @@ function randomHeight(metaType="Human"){
     if(metaType == "Troll") {
         height = Math.floor(Math.random()*(350-200+1)+200);
     }
+    
+    if(metaType == "Giant") {
+         weight = Math.floor(Math.random()*(400-250)+400);
+    }
+    
+    
+    //Dwarf Subtype Height
 
     if(metaType == "Dwarf") {
         height = Math.floor(Math.random()*(160-120+1)+120);
-    } 
+    }
+    
+    if(metaType == "Gnome") {
+        height = Math.floor(Math.random()*(95-65+1)+95);
+    }
+    
+    if(metaType == "Koborokuru"|| metaType == "Menehune") {
+        height = Math.floor(Math.random()*(130-90+1)+130);
+    }
+    
+    //Elvish Subtype Height
+    
+    if(metaType == "Dryad") {
+        height = Math.floor(Math.random()*(120-85+1)+120);
+    }
+    
+    if(metaType == "Wakyambi") {
+        height = Math.floor(Math.random()*(350-200+1)+200);
+    }
+    
+    //Ork Subtype Height
+    
+    if(metaType == "Hobgoblin") {
+         height = Math.floor(Math.random()*(200-160+1)+200);
+    }
+    
+    if(metaType == "Ogre") {
+         height = Math.floor(Math.random()*(190-160+1)+190);
+    }
+    
+    if(metaType == "Oni") {
+         height = Math.floor(Math.random()*(220-180+1)+220);
+    }
 
     return (height/100) + " m";
 }
@@ -1417,4 +1531,121 @@ function randomAge(metaType="Human"){
     var age = nscAge = Math.floor(Math.random()*(100-18+1)+18);
 
     return age
+}
+
+function randomEthnicOrigin(metaType="Human"){
+
+    var ethnie = [];
+    
+    var appLanguage = ($('input[name=radioLanguage]:checked', '#languageForm').val());
+    
+    ethnie['en'] = [
+        "Anglo-American",
+        "African",
+        "European",
+        "Japanese/Koren",
+        "Chinese/Southern Asia",
+        "Pacific Islander",
+        "Hispanic-American",
+        "South American",
+        "Black American",
+        "Central European",
+        "Middle East"
+    ];
+    
+   ethnie['de'] = [
+        "Anglo-American",
+        "African",
+        "European",
+        "Japanese/Koren",
+        "Chinese/Southern Asia",
+        "Pacific Islander",
+        "Hispanic-American",
+        "South American",
+        "Black American",
+        "Central European",
+        "Middle East"
+    ];
+    
+    var ethnieNumber = Math.floor(Math.random() * ethnie[appLanguage].length)
+  
+    //Dwarf Subtype Origins
+    
+    if(metaType == "Gnome") {
+        ethnie[appLanguage][ethnieNumber] = "European";
+    }
+    
+    if(metaType == "Harumen") {
+        ethnie[appLanguage][ethnieNumber] = "Chinese/Southern Asia";
+    }    
+    
+    if(metaType == "Koborokuru") {
+        ethnie[appLanguage][ethnieNumber] = "Japanese/Koren";
+    }    
+    
+    if(metaType == "Menehune") {
+        ethnie[appLanguage][ethnieNumber] = "Pacific Islander";
+    }   
+    
+    if(metaType == "Querx") {
+        ethnie[appLanguage][ethnieNumber] = "Allied German States";
+    }
+    
+    //Elve Subtype Origins
+    
+    if(metaType == "Dalakiton") {
+        ethnie[appLanguage][ethnieNumber] = "Chinese/Southern Asia";
+    }
+    
+    if(metaType == "Wakyambi") {
+        ethnie[appLanguage][ethnieNumber] = "African";
+    }    
+    
+    if(metaType == "Xapiri Thëpë") {
+        ethnie[appLanguage][ethnieNumber] = "South American";
+    }    
+    
+    //Human Subtype Origins
+    
+    if(metaType == "Nartaki") {
+        ethnie[appLanguage][ethnieNumber] = "Chinese/Southern Asia";
+    } 
+    
+    //Ork Subtype Origins
+    
+    if(metaType == "Hobgoblin") {
+        ethnie[appLanguage][ethnieNumber] = "Middle East";
+    } 
+    
+        if(metaType == "Ogre") {
+        ethnie[appLanguage][ethnieNumber] = "European";
+    } 
+    
+        if(metaType == "Oni") {
+        ethnie[appLanguage][ethnieNumber] = "Japanese/Koren";
+    } 
+    
+        if(metaType == "Satyr") {
+        ethnie[appLanguage][ethnieNumber] = "European";
+    } 
+    
+    //Troll Subtype Origins
+    
+    if(metaType == "Cyclop") {
+        ethnie[appLanguage][ethnieNumber] = "European";
+    } 
+    
+        if(metaType == "Fomori") {
+        ethnie[appLanguage][ethnieNumber] = "Irish";
+    } 
+    
+        if(metaType == "Giant") {
+        ethnie[appLanguage][ethnieNumber] = "North European";
+    } 
+    
+        if(metaType == "Minotaur") {
+        ethnie[appLanguage][ethnieNumber] = "European";
+    } 
+    
+    return ethnie[appLanguage][ethnieNumber];
 }
